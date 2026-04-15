@@ -2,6 +2,7 @@
 #include "UnitBase.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/CapsuleComponent.h"
+#include "../Input/ControllerBase.h"
 
 AUnitBase::AUnitBase()
 {
@@ -21,21 +22,23 @@ AUnitBase::AUnitBase()
 		SelectionVolume->SetupAttachment(RootComponent);
 		SelectionVolume->bHiddenInGame = true;
 		SelectionVolume->SetVisibility(false);
+		SelectionVolume->SetCollisionResponseToChannel(ECC_Camera, ECR_Block);
 	}
 }
 
 void AUnitBase::BeginPlay()
 {
 	Super::BeginPlay();
-	
 	CreateDecal();
-	if (GetMesh())
-		GetMesh()->bReceivesDecals = false;
 	SetUpCylinder();
+	SetController();
 }
 
 void AUnitBase::CreateDecal()
 {
+	if (GetMesh())
+		GetMesh()->bReceivesDecals = false;
+
 	if (!DecalMaterial) return;
 
 	DecalMatInstance = UMaterialInstanceDynamic::Create(DecalMaterial, this);
@@ -59,13 +62,28 @@ void AUnitBase::CreateDecal()
 	
 }
 
+// Adjusts SelectionCylinder's height to be 5% larger than CapsuleComponent
 void AUnitBase::SetUpCylinder()
 {
 	if (SelectionVolume)
 	{
-		SelectionVolume->SetWorldScale3D(FVector(1.0f));
-		SelectionVolume->SetCollisionResponseToChannel(ECC_Camera, ECR_Block);
+		// Add OnClicked input
 		SelectionVolume->OnClicked.AddDynamic(this, &IInteract::OnInteract);
+		// Get CapsuleComponent's height
+		float CapsuleHeight = GetCapsuleComponent()->GetScaledCapsuleHalfHeight() * 2.f;
+		// Get SelectionVolume's height
+		float CylinderHeight = SelectionVolume->GetStaticMesh()->GetBounds().BoxExtent.Z * 2.0f;
+		// Z.Scale multiplier
+		float ZScaleMultiplier = 1.05f;
+
+		// Calculate scale
+		float ZScale = CapsuleHeight / CylinderHeight;
+		FVector XZSize = SelectionVolume->GetRelativeScale3D();
+		FVector NewScale = FVector(XZSize.X, XZSize.Y, ZScale * ZScaleMultiplier);
+
+		// Apply new scale and making sure SelectionVolume is in the correct location
+		SelectionVolume->SetWorldScale3D(NewScale);
+		SelectionVolume->SetRelativeLocation(FVector(0.f, 0.f, 0.f));
 	}
 }
 
@@ -94,6 +112,29 @@ void AUnitBase::SetDecalColor(FLinearColor Color)
 
 void AUnitBase::OnInteract_Implementation(UPrimitiveComponent* TouchedComponent, FKey ButtonPressed)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Hello mother fucker"))
+	UE_LOG(LogTemp, Warning, TEXT("Someone touched me"))
+	switch (UnitType)
+	{
+		case EUnitType::Controlled:
+		if (Controller)
+		{
+			Controller->ClearSelectedUnits();
+			Controller->AddUnit(this);
+		}
+		else
+			UE_LOG(LogTemp, Warning, TEXT("Commander is not valid"));
+		break;
+
+		case EUnitType::Friendly:
+		break;
+
+		case EUnitType::Hostile:
+		break;
+	}
+}
+
+void AUnitBase::SetController()
+{
+	Controller = Cast<AControllerBase>(GetWorld()->GetFirstPlayerController());
 }
 	

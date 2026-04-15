@@ -10,6 +10,17 @@
 // Generated
 #include "UnitBase.generated.h"
 
+// Enum
+UENUM(BlueprintType)
+enum class EUnitType : uint8
+{
+	Controlled,
+	Friendly, 
+	Hostile
+};
+
+class AControllerBase;
+
 UCLASS()
 class PROJECT_E_API AUnitBase : public ACharacter, public IInteract
 {
@@ -58,4 +69,10 @@ public:
 
 	UPROPERTY(VisibleAnywhere)
 	UStaticMeshComponent* SelectionVolume;
+
+	EUnitType UnitType = EUnitType::Controlled;
+
+	AControllerBase* Controller = nullptr;
+
+	void SetController();
 };
