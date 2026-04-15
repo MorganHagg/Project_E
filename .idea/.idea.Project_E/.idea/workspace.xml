@@ -12,8 +12,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85a82e2a-183c-4528-aacd-187cd00cb16d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Source/Project_E/Character/Commander.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/Project_E/Character/Commander.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/Project_E/Interface/Interact.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/Project_E/Interface/Interact.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Project_E/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project_E/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/BP_Commander.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/BP_Commander.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/BP_GameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/BP_GameMode.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/BP_PlayableCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/BP_PlayableCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/CommonFunctions.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/CommonFunctions.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/Input/BP_ControllerBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/Input/BP_ControllerBase.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Levels/Test.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Test.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Character/BP_PlayableCharacter.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Character/BP_PlayableCharacter.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Character/PlayableCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Character/UnitBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Character/PlayableCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Character/UnitBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Input/ControllerBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Input/ControllerBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/MyActor.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/MyActor.h" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,21 +38,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "MorganHagg"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;MorganHagg&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/MorganHagg/Project_E.git",
-    "accountId": "495ba3e0-ed26-4d22-98dd-f0d012729a73"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/MorganHagg/Project_E.git&quot;,
+    &quot;accountId&quot;: &quot;495ba3e0-ed26-4d22-98dd-f0d012729a73&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Source/Project_E/Character/BP_PlayableCharacter.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/Project_E/Character/BP_PlayableCharacter.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Project_E/Character/BP_PlayableCharacter.h" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -51,20 +66,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "RiderUnrealFileTemplatesSettings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Working&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;RiderUnrealFileTemplatesSettings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="C/C++ Project.Project_E">
     <configuration name="Project_E" type="CppProject" factoryName="C++ Project">
       <configuration_1 setup="1">
@@ -170,6 +186,10 @@
       <workItem from="1774199484282" duration="1429000" />
       <workItem from="1774200982894" duration="603000" />
       <workItem from="1774201631696" duration="1117000" />
+      <workItem from="1776237641613" duration="976000" />
+      <workItem from="1776241441446" duration="3544000" />
+      <workItem from="1776245477854" duration="3532000" />
+      <workItem from="1776249100091" duration="5279000" />
     </task>
     <servers />
   </component>
