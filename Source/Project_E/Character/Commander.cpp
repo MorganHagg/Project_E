@@ -7,7 +7,7 @@ ACommander::ACommander()
 
 void ACommander::BeginPlay()
 {
-	Super::BeginPlay();
+	Super::BeginPlay(); 
 	
 }
 

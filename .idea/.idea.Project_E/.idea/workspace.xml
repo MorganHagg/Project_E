@@ -12,21 +12,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85a82e2a-183c-4528-aacd-187cd00cb16d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Source/Project_E/HUD/MainHUD.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/Project_E/HUD/MainHUD.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project_E/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project_E/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Framework/BP_Commander.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/BP_Commander.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Framework/BP_GameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/BP_GameMode.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Framework/Input/BP_ControllerBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/Input/BP_ControllerBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Framework/UI/HUD_Canvas.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/UI/HUD_Canvas.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Framework/Units/BP_Warrior.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/Units/BP_Warrior.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Levels/Test.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Test.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/UI/HUD_Canvas.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/UI/IF_Selection.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project_E.sln.DotSettings.user" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/Character/Commander.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Character/Commander.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Project_E/Character/Commander.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Character/Commander.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Project_E/Character/UnitBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Character/UnitBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Project_E/Character/UnitBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Character/UnitBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/HUD/MainHUD.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/HUD/MainHUD.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/HUD/MainHUD.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/HUD/MainHUD.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/Input/ControllerBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Input/ControllerBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Project_E/Input/ControllerBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Input/ControllerBase.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,6 +184,8 @@
       <workItem from="1776245477854" duration="3532000" />
       <workItem from="1776249100091" duration="12768000" />
       <workItem from="1776262069277" duration="4775000" />
+      <workItem from="1776267374146" duration="1583000" />
+      <workItem from="1776268993994" duration="1782000" />
     </task>
     <servers />
   </component>

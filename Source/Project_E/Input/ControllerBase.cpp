@@ -36,6 +36,7 @@ void AControllerBase::Initiate()
 
 void AControllerBase::AddUnit(class AUnitBase* Unit)
 {
+	UE_LOG(LogTemp, Log, TEXT("Adding unit %s"), *Unit->GetName());
 	SelectedUnits.AddUnique(Unit);
 	Unit->DrawDecal();
 }
