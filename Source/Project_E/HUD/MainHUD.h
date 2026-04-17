@@ -20,7 +20,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void StartSelection();
 	UFUNCTION(BlueprintCallable)
-	void EndSelection();
+	TArray<class AUnitBase*> EndSelection();
 	TArray<AUnitBase*> SelectedUnits;
 	
 	AControllerBase* Controller = nullptr;
@@ -28,7 +28,4 @@ public:
 	FVector2D PointB;
 	bool bIsDrawing = false;
 	FLinearColor DrawColor = FLinearColor(0.f, 0.f, 0.f, 0.7f);
-
-	UFUNCTION(BlueprintCallable)
-	void TEST();
 };

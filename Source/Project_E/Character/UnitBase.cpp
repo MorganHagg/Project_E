@@ -1,7 +1,7 @@
 ﻿// Engine classes
 #include "UnitBase.h"
-#include "Components/StaticMeshComponent.h"
 #include "Components/CapsuleComponent.h"
+// Custom classes
 #include "../Input/ControllerBase.h"
 
 AUnitBase::AUnitBase()
@@ -12,25 +12,12 @@ AUnitBase::AUnitBase()
 		nullptr,
 		TEXT("/Game/Assets/Decal/UnitTarget_Mat")
 	);
-
-	// SelectionVolume allows leniency as to where the player can click on a unit and still have it register
-	SelectionVolume = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("SelectionVolume"));
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> CylinderAsset(TEXT("/Engine/BasicShapes/Cylinder.Cylinder"));
-	if (CylinderAsset.Succeeded())
-	{
-		SelectionVolume->SetStaticMesh(CylinderAsset.Object);
-		SelectionVolume->SetupAttachment(RootComponent);
-		SelectionVolume->bHiddenInGame = true;
-		SelectionVolume->SetVisibility(false);
-		SelectionVolume->SetCollisionResponseToChannel(ECC_Camera, ECR_Block);
-	}
 }
 
 void AUnitBase::BeginPlay()
 {
 	Super::BeginPlay();
 	CreateDecal();
-	SetUpCylinder();
 	SetController();
 }
 
@@ -62,31 +49,6 @@ void AUnitBase::CreateDecal()
 	
 }
 
-// Adjusts SelectionCylinder's height to be 5% larger than CapsuleComponent
-void AUnitBase::SetUpCylinder()
-{
-	if (SelectionVolume)
-	{
-		// Add OnClicked input
-		SelectionVolume->OnClicked.AddDynamic(this, &IInteract::OnInteract);
-		// Get CapsuleComponent's height
-		float CapsuleHeight = GetCapsuleComponent()->GetScaledCapsuleHalfHeight() * 2.f;
-		// Get SelectionVolume's height
-		float CylinderHeight = SelectionVolume->GetStaticMesh()->GetBounds().BoxExtent.Z * 2.0f;
-		// Z.Scale multiplier
-		float ZScaleMultiplier = 1.05f;
-
-		// Calculate scale
-		float ZScale = CapsuleHeight / CylinderHeight;
-		FVector XZSize = SelectionVolume->GetRelativeScale3D();
-		FVector NewScale = FVector(XZSize.X, XZSize.Y, ZScale * ZScaleMultiplier);
-
-		// Apply new scale and making sure SelectionVolume is in the correct location
-		SelectionVolume->SetWorldScale3D(NewScale);
-		SelectionVolume->SetRelativeLocation(FVector(0.f, 0.f, 0.f));
-	}
-}
-
 void AUnitBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
@@ -112,29 +74,42 @@ void AUnitBase::SetDecalColor(FLinearColor Color)
 
 void AUnitBase::OnInteract_Implementation(UPrimitiveComponent* TouchedComponent, FKey ButtonPressed)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Someone touched me"))
+	
+}
+
+	void AUnitBase::SetController()
+{
+	Controller = Cast<AControllerBase>(GetWorld()->GetFirstPlayerController());
+	Controller->Squad.Add(this, false);
+}
+
+void AUnitBase::SetUnitType(EUnitType NewType)
+{
+	UnitType = NewType;
 	switch (UnitType)
 	{
-		case EUnitType::Controlled:
-		if (Controller)
-		{
-			Controller->ClearSelectedUnits();
-			Controller->AddUnit(this);
-		}
-		else
-			UE_LOG(LogTemp, Warning, TEXT("Commander is not valid"));
+	case EUnitType::Controlled:
+		UE_LOG(LogTemp, Warning, TEXT("I am now controlled"))
+		Controller->AddToSquad(this);
 		break;
-
-		case EUnitType::Friendly:
+	case EUnitType::Friendly:
+		UE_LOG(LogTemp, Warning, TEXT("I am now friendly!"))
 		break;
-
-		case EUnitType::Hostile:
+	case EUnitType::Hostile:
+		if (Controller->Squad.Contains(this))
+			Controller->RemoveFromSquad(this);
+		UE_LOG(LogTemp, Warning, TEXT("I am now hostile!"))	
 		break;
 	}
 }
 
-void AUnitBase::SetController()
+void AUnitBase::Attack()
 {
-	Controller = Cast<AControllerBase>(GetWorld()->GetFirstPlayerController());
+	UE_LOG(LogTemp, Warning, TEXT("Attacking unit"));
+}
+
+void AUnitBase::MoveTo()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Moving unit"));
 }
 	

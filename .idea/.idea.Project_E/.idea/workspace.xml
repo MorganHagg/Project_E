@@ -13,20 +13,25 @@
   <component name="ChangeListManager">
     <list default="true" id="85a82e2a-183c-4528-aacd-187cd00cb16d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project_E/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project_E/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Framework/BP_Commander.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/BP_Commander.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/CommonFunctions.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/CommonFunctions.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Framework/Input/BP_ControllerBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/Input/BP_ControllerBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Framework/UI/HUD_Canvas.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Framework/UI/IF_Selection.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project_E.sln.DotSettings.user" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Project_E/Character/Commander.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Character/Commander.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/Input/MappingContext/IMC_ControllUnits.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/Input/MappingContext/IMC_ControllUnits.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/Units/BP_Warrior.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/Units/BP_Warrior.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Levels/Test.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Test.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Character/UnitBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Character/UnitBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Character/UnitBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Character/UnitBase.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/HUD/MainHUD.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/HUD/MainHUD.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/HUD/MainHUD.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/HUD/MainHUD.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/Input/ControllerBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Input/ControllerBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Input/ControllerBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Input/ControllerBase.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="firstShow" value="false" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -61,6 +66,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;C/C++ Project.Project_E.executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
@@ -186,6 +192,10 @@
       <workItem from="1776262069277" duration="4775000" />
       <workItem from="1776267374146" duration="1583000" />
       <workItem from="1776268993994" duration="1782000" />
+      <workItem from="1776345952348" duration="596000" />
+      <workItem from="1776421944346" duration="497000" />
+      <workItem from="1776422494788" duration="1518000" />
+      <workItem from="1776424082022" duration="14540000" />
     </task>
     <servers />
   </component>

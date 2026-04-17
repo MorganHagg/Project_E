@@ -8,6 +8,11 @@ void AMainHUD::BeginPlay()
 	SetController();
 }
 
+void AMainHUD::SetController()
+{
+	Controller = Cast<AControllerBase>(GetWorld()->GetFirstPlayerController());
+}
+
 void AMainHUD::DrawHUD()
 {
 	if (bIsDrawing)
@@ -20,33 +25,25 @@ void AMainHUD::DrawHUD()
 	   PointA, 
 	   PointB, 
 	   SelectedUnits, 
-	   true, 
+	   false, 
 	   false	);
 	}
 }
 
 void AMainHUD::StartSelection()
 {
-	GetOwningPlayerController()->GetMousePosition(PointA.X, PointA.Y);
+	Controller->GetMousePosition(PointA.X, PointA.Y);
 	bIsDrawing = true;
 }
 
-void AMainHUD::EndSelection()
+
+// void AMainHUD::EndSelection()
+TArray<class AUnitBase*> AMainHUD::EndSelection()
 {
-	for (AUnitBase* Units : SelectedUnits)
-	{
-		Controller->AddUnit(Units);
-	}
 	bIsDrawing = false;
+	return SelectedUnits;
 }
 
-void AMainHUD::TEST()
-{
-	UE_LOG(LogTemp, Warning, TEXT("SelectedUnits count: %d"), SelectedUnits.Num());
-}		
 
-void AMainHUD::SetController()
-{
-	Controller = Cast<AControllerBase>(GetWorld()->GetFirstPlayerController());
-}
+
 	

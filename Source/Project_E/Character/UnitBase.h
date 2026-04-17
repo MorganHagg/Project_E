@@ -34,8 +34,6 @@ protected:
 	virtual void BeginPlay() override;
 
 	void CreateDecal();
-
-	void SetUpCylinder();
 	
 public:
 	virtual void Tick(float DeltaTime) override;
@@ -67,12 +65,17 @@ public:
 	UFUNCTION()
 	virtual void OnInteract_Implementation(UPrimitiveComponent* TouchedComponent, FKey ButtonPressed) override;
 
-	UPROPERTY(VisibleAnywhere)
-	UStaticMeshComponent* SelectionVolume;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	EUnitType UnitType = EUnitType::Controlled;
 
 	AControllerBase* Controller = nullptr;
 
 	void SetController();
+
+	UFUNCTION(BlueprintCallable, Category = "Decals")
+	void SetUnitType(EUnitType NewType);
+
+	void Attack();
+	void MoveTo();
 };
