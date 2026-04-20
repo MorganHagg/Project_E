@@ -1,8 +1,12 @@
 ﻿// Engine classes
 #include "UnitBase.h"
 #include "Components/CapsuleComponent.h"
+#include "BehaviorTree/BehaviorTree.h"
 // Custom classes
 #include "../Input/ControllerBase.h"
+#include "../AI/AIBase.h"
+#include "../AI/AIPlayer.h"
+#include "../AI/AIEnemy.h"
 
 AUnitBase::AUnitBase()
 {
@@ -12,6 +16,20 @@ AUnitBase::AUnitBase()
 		nullptr,
 		TEXT("/Game/Assets/Decal/UnitTarget_Mat")
 	);
+}
+
+void AUnitBase::PreInitializeComponents()
+{
+	Super::PreInitializeComponents();
+	switch (UnitType)
+	{
+	case EUnitType::Controlled:
+		AIControllerClass = AAIPlayer::StaticClass();
+		break;
+	case EUnitType::Hostile:
+		AIControllerClass = AAIEnemy::StaticClass();
+		break;
+	}
 }
 
 void AUnitBase::BeginPlay()
@@ -87,6 +105,7 @@ void AUnitBase::SetController()
 {
 	Controller = Cast<AControllerBase>(GetWorld()->GetFirstPlayerController());
 	Controller->Squad.Add(this, false);
+	MyController = Cast<AAIBase>(this->GetController());
 }
 
 void AUnitBase::SetUnitType(EUnitType NewType)
@@ -97,9 +116,6 @@ void AUnitBase::SetUnitType(EUnitType NewType)
 	case EUnitType::Controlled:
 		UE_LOG(LogTemp, Warning, TEXT("I am now controlled"))
 		Controller->AddToSquad(this);
-		break;
-	case EUnitType::Friendly:
-		UE_LOG(LogTemp, Warning, TEXT("I am now friendly!"))
 		break;
 	case EUnitType::Hostile:
 		if (Controller->Squad.Contains(this))
@@ -114,8 +130,8 @@ void AUnitBase::Attack()
 	UE_LOG(LogTemp, Warning, TEXT("Attacking unit"));
 }
 
-void AUnitBase::MoveTo()
+void AUnitBase::MoveTo(FVector Location)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Moving unit"));
+	MyController->SetTargetLocation(Location);
 }
 	

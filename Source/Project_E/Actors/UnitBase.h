@@ -8,12 +8,14 @@
 // Generated
 #include "UnitBase.generated.h"
 
+class UBehaviorTree;
+class AAIBase;
+
 // Enum
 UENUM(BlueprintType)
 enum class EUnitType : uint8
 {
 	Controlled,
-	Friendly, 
 	Hostile
 };
 
@@ -26,7 +28,7 @@ class PROJECT_E_API AUnitBase : public ACharacter
 
 public:
 	AUnitBase();
-
+	virtual void PreInitializeComponents() override;
 
 protected:
 	virtual void BeginPlay() override;
@@ -63,16 +65,21 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Decals")
 	float DecalThickness = 128.f;
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI")
 	EUnitType UnitType = EUnitType::Controlled;
 
 	AControllerBase* Controller = nullptr;
+	AAIBase* MyController = nullptr;
+	
 
 	void SetController();
 	
-	UFUNCTION(BlueprintCallable, Category = "Decals")
+	UFUNCTION(BlueprintCallable)
 	void SetUnitType(EUnitType NewType);
 
 	void Attack();
-	void MoveTo();
+	void MoveTo(FVector Location);
+
+	UPROPERTY(EditAnywhere, Category = "AI")
+	UBehaviorTree* BehaviorTree;
 };

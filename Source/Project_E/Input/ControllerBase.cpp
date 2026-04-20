@@ -1,6 +1,6 @@
 ﻿// Engine classes
 #include "ControllerBase.h"
-#include "../Character/UnitBase.h"
+#include "../Actors/UnitBase.h"
 #include "EnhancedInputComponent.h"
 // Custom classes
 #include "../HUD/MainHUD.h"
@@ -87,8 +87,6 @@ void AControllerBase::CommandPressed()
 		case EUnitType::Controlled:
 			UE_LOG(LogTemp, Warning, TEXT("Friendly target"))
 			break;	// Do nothing
-		case EUnitType::Friendly:
-			break;
 		case EUnitType::Hostile:
 			for (auto& Pair : Squad)
 			{
@@ -103,7 +101,7 @@ void AControllerBase::CommandPressed()
 		for (auto& Pair : Squad)
 		{
 			if (Pair.Value == true)
-				Pair.Key->MoveTo();
+				Pair.Key->MoveTo(Hit.Location);
 		}
 	}
 }

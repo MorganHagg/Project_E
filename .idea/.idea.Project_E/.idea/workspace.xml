@@ -12,12 +12,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85a82e2a-183c-4528-aacd-187cd00cb16d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Source/Project_E/AI/AIBase.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/Project_E/AI/AIBase.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/Project_E/AI/AIEnemy.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/Project_E/AI/AIEnemy.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/Project_E/AI/AIPlayer.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/Project_E/AI/AIPlayer.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/Project_E/Actors/StructureBase.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/Project_E/Actors/StructureBase.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project_E/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project_E/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Framework/CameraCurve.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Framework/Input/BP_ControllerBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/Input/BP_ControllerBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Project_E/Character/UnitBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Character/UnitBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Project_E/Character/UnitBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Character/UnitBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/Units/BP_Warrior.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/Units/BP_Warrior.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Levels/Test.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Test.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/AI/PlayerAIBase.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/AI/PlayerAIBase.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Character/Commander.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Actors/Commander.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Character/Commander.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Actors/Commander.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Character/UnitBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Actors/UnitBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Character/UnitBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Actors/UnitBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/HUD/MainHUD.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/HUD/MainHUD.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/Input/ControllerBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Input/ControllerBase.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,8 +58,8 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Source/Project_E/Character/BP_PlayableCharacter.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/Project_E/Character/BP_PlayableCharacter.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/CoreUObject/Public/UObject/Class.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/CoreUObject/Public/UObject/UObjectGlobals.h" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -192,7 +206,7 @@
       <workItem from="1776422494788" duration="1518000" />
       <workItem from="1776424082022" duration="14739000" />
       <workItem from="1776499882775" duration="1250000" />
-      <workItem from="1776678138530" duration="4390000" />
+      <workItem from="1776678138530" duration="16504000" />
     </task>
     <servers />
   </component>
