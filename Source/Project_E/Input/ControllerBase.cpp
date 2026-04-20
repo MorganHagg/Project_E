@@ -61,15 +61,15 @@ void AControllerBase::SelectStarted()
 		ClearSelectedUnits();
 }
 
-
 void AControllerBase::SelectReleased()
 {
 	TArray<AUnitBase*> SelectedUnits;
 	SelectedUnits = HUD->EndSelection();
+		
 	for (AUnitBase* Unit : SelectedUnits)
 	{
 		if (Squad.Contains(Unit))
-			Squad[Unit] = true;
+			Unit->ToggleSelect();
 	}
 	UpdateSelectedUnits();
 }
@@ -77,6 +77,7 @@ void AControllerBase::SelectReleased()
 void AControllerBase::CommandPressed()
 {
 	FHitResult Hit;
+	
 	GetHitResultUnderCursor(ECC_Camera, false, Hit);
 
 	if (AUnitBase* Target = Cast<AUnitBase>(Hit.GetActor()))

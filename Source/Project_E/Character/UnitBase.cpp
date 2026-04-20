@@ -54,6 +54,17 @@ void AUnitBase::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
+void AUnitBase::ToggleSelect()
+{
+	if (!Controller) return;
+
+	if (bool* bSelected = Controller->Squad.Find(this))
+	{
+		*bSelected = !(*bSelected);
+	}
+	
+}
+
 void AUnitBase::DrawDecal()
 {
 	if (DecalComponent)
@@ -72,12 +83,7 @@ void AUnitBase::SetDecalColor(FLinearColor Color)
 	DecalMatInstance->SetVectorParameterValue(TEXT("TintColor"), Color);
 }
 
-void AUnitBase::OnInteract_Implementation(UPrimitiveComponent* TouchedComponent, FKey ButtonPressed)
-{
-	
-}
-
-	void AUnitBase::SetController()
+void AUnitBase::SetController()
 {
 	Controller = Cast<AControllerBase>(GetWorld()->GetFirstPlayerController());
 	Controller->Squad.Add(this, false);

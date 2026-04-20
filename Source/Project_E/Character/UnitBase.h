@@ -5,8 +5,6 @@
 #include "Kismet/GameplayStatics.h"
 #include "Components/DecalComponent.h"
 #include "Materials/MaterialInstanceDynamic.h"
-// Custom classes
-#include "../Interface/Interact.h"
 // Generated
 #include "UnitBase.generated.h"
 
@@ -22,7 +20,7 @@ enum class EUnitType : uint8
 class AControllerBase;
 
 UCLASS()
-class PROJECT_E_API AUnitBase : public ACharacter, public IInteract
+class PROJECT_E_API AUnitBase : public ACharacter
 {
 	GENERATED_BODY()
 
@@ -38,6 +36,9 @@ protected:
 public:
 	virtual void Tick(float DeltaTime) override;
 
+	UFUNCTION(BlueprintCallable, Category = "Squad")
+	void ToggleSelect();
+	
 	UFUNCTION(BlueprintCallable, Category = "Decals")
 	void DrawDecal();
 
@@ -61,18 +62,14 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Decals")
 	float DecalThickness = 128.f;
-
-	UFUNCTION()
-	virtual void OnInteract_Implementation(UPrimitiveComponent* TouchedComponent, FKey ButtonPressed) override;
-
-
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	EUnitType UnitType = EUnitType::Controlled;
 
 	AControllerBase* Controller = nullptr;
 
 	void SetController();
-
+	
 	UFUNCTION(BlueprintCallable, Category = "Decals")
 	void SetUnitType(EUnitType NewType);
 
