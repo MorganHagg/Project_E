@@ -7,6 +7,7 @@
 #include "../AI/AIBase.h"
 #include "../AI/AIPlayer.h"
 #include "../AI/AIEnemy.h"
+#include "../Ability/Ability.h"
 
 AUnitBase::AUnitBase()
 {
@@ -23,10 +24,10 @@ void AUnitBase::PreInitializeComponents()
 	Super::PreInitializeComponents();
 	switch (UnitType)
 	{
-	case EUnitType::Controlled:
+	case EUnitFaction::Controlled:
 		AIControllerClass = AAIPlayer::StaticClass();
 		break;
-	case EUnitType::Hostile:
+	case EUnitFaction::Hostile:
 		AIControllerClass = AAIEnemy::StaticClass();
 		break;
 	}
@@ -108,16 +109,16 @@ void AUnitBase::SetController()
 	MyController = Cast<AAIBase>(this->GetController());
 }
 
-void AUnitBase::SetUnitType(EUnitType NewType)
+void AUnitBase::SetUnitType(EUnitFaction NewType)
 {
 	UnitType = NewType;
 	switch (UnitType)
 	{
-	case EUnitType::Controlled:
+	case EUnitFaction::Controlled:
 		UE_LOG(LogTemp, Warning, TEXT("I am now controlled"))
 		Controller->AddToSquad(this);
 		break;
-	case EUnitType::Hostile:
+	case EUnitFaction::Hostile:
 		if (Controller->Squad.Contains(this))
 			Controller->RemoveFromSquad(this);
 		UE_LOG(LogTemp, Warning, TEXT("I am now hostile!"))	
@@ -134,4 +135,40 @@ void AUnitBase::MoveTo(FVector Location)
 {
 	MyController->SetTargetLocation(Location);
 }
+
+void AUnitBase::AddAbility(TSubclassOf<UAbility> NewAbility)
+{
+	if (!NewAbility) {UE_LOG(LogTemp, Error, TEXT("No ability chosen")) return;};
+
+	int Index = GrantedAbilities.Find(NewAbility);
+	if (Index == INDEX_NONE)
+		GrantedAbilities.Add(NewAbility);
+	else
+		UE_LOG(LogTemp, Warning, TEXT("AddAbility: Ability already granted at slot %d"), Index);
+}
+
+void AUnitBase::ReplaceAbility(TSubclassOf<UAbility> OldAbility, TSubclassOf<UAbility> NewAbility)
+{
+	if (!OldAbility || !NewAbility) {UE_LOG(LogTemp, Error, TEXT("No ability chosen")) return;};
+
+	int Index = GrantedAbilities.Find(OldAbility);
+	if (Index != INDEX_NONE)
+		GrantedAbilities[Index] = NewAbility;
+	else
+		UE_LOG(LogTemp, Warning, TEXT("%s was not found in GrantedAbilities."), *OldAbility->GetName())
 	
+}
+
+void AUnitBase::RemoveAbility(TSubclassOf<UAbility> OldAbility)
+{
+	if (!OldAbility) {UE_LOG(LogTemp, Error, TEXT("No ability chosen")) return;};
+	int Index = GrantedAbilities.Find(OldAbility);
+	if (Index != INDEX_NONE)
+		GrantedAbilities.RemoveAt(Index);
+}
+
+void AUnitBase::ActivateAbility(int AbilityIndex)
+{
+	UAbility* Ability = NewObject<UAbility>(this, GrantedAbilities[AbilityIndex]);
+	Ability->Activate();
+}

@@ -84,10 +84,10 @@ void AControllerBase::CommandPressed()
 	{
 		switch (Target->UnitType)
 		{
-		case EUnitType::Controlled:
+		case EUnitFaction::Controlled:
 			UE_LOG(LogTemp, Warning, TEXT("Friendly target"))
 			break;	// Do nothing
-		case EUnitType::Hostile:
+		case EUnitFaction::Hostile:
 			for (auto& Pair : Squad)
 			{
 				if (Pair.Value == true)

@@ -10,10 +10,11 @@
 
 class UBehaviorTree;
 class AAIBase;
+class UAbility;
 
 // Enum
 UENUM(BlueprintType)
-enum class EUnitType : uint8
+enum class EUnitFaction : uint8
 {
 	Controlled,
 	Hostile
@@ -66,20 +67,39 @@ public:
 	float DecalThickness = 128.f;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI")
-	EUnitType UnitType = EUnitType::Controlled;
+	EUnitFaction UnitType = EUnitFaction::Controlled;
 
 	AControllerBase* Controller = nullptr;
 	AAIBase* MyController = nullptr;
 	
-
 	void SetController();
 	
 	UFUNCTION(BlueprintCallable)
-	void SetUnitType(EUnitType NewType);
+	void SetUnitType(EUnitFaction NewType);
 
 	void Attack();
 	void MoveTo(FVector Location);
 
 	UPROPERTY(EditAnywhere, Category = "AI")
 	UBehaviorTree* BehaviorTree;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<TSubclassOf<UAbility>> GrantedAbilities;
+
+	UFUNCTION(BlueprintCallable)
+	void AddAbility(TSubclassOf<UAbility> NewAbility);
+
+	UFUNCTION(BlueprintCallable)
+	void ReplaceAbility(TSubclassOf<UAbility> OldAbility, TSubclassOf<UAbility> NewAbility);
+	
+	UFUNCTION(BlueprintCallable)
+	void RemoveAbility(TSubclassOf<UAbility> OldAbility);
+
+	UFUNCTION(BlueprintCallable)
+	void ActivateAbility(int AbilityIndex);
+	
+	AUnitBase* MyTarget;
+
+	UFUNCTION(BlueprintCallable)
+	AUnitBase* GetMyTarget() {return MyTarget;};
 };
