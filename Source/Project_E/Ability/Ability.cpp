@@ -71,6 +71,7 @@ void UAbility::RunEffect_Heal()
 
 void UAbility::RunEffect_AOE()
 {
+	
 }
 
 void UAbility::RunEffect_ApplyStasis()

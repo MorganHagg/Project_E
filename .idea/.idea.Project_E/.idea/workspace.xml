@@ -12,29 +12,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85a82e2a-183c-4528-aacd-187cd00cb16d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Source/Project_E/Ability/Ability.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/Project_E/Ability/Ability.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/Project_E/Ability/Projectile.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/Project_E/Ability/Projectile.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/Project_E/Ability/TargetLocation.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/Project_E/Ability/TargetLocation.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/Project_E/Interface/Damageable.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/Project_E/Interface/Damageable.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/Project_E/Misc/StatNames.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project_E/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project_E/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEditor.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEditor.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Mesh/Arm.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Mesh/Clothes.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Mesh/Eye01.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Mesh/Eye02.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Mesh/Hair.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Mesh/Hand.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Mesh/Skin.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Mesh/TheGuy.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Mesh/TheGuy_PhysicsAsset.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Mesh/TheGuy_Skeleton.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Framework/Input/BP_ControllerBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/Input/BP_ControllerBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Framework/Units/BP_Warrior.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/Units/BP_Warrior.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/Abilities/ArrowShot.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Ability/Ability.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Ability/Ability.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Ability/TargetLocation.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Ability/TargetLocation.h" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/Actors/UnitBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Actors/UnitBase.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/Actors/UnitBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Actors/UnitBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Project_E/Input/ControllerBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Input/ControllerBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Interface/Interact.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Interface/Interact.h" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +52,7 @@
     <setting file="file://C:/Program Files/Epic Games/UE_5.7/Engine/Source/Editor/EditorFramework/Private/Viewports/SDepthBar.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Core/Public/Math/UnitConversion.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Core/Public/Math/UnitConversion.inl" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Core/Public/String/FormatStringSanErrors.inl" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/CoreUObject/Public/UObject/Class.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/CoreUObject/Public/UObject/UObjectGlobals.h" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -216,6 +206,11 @@
       <workItem from="1776856271971" duration="14928000" />
       <workItem from="1776871980833" duration="205000" />
       <workItem from="1776872227375" duration="729000" />
+      <workItem from="1776943662400" duration="264000" />
+      <workItem from="1776944234680" duration="595000" />
+      <workItem from="1776944928652" duration="679000" />
+      <workItem from="1776946209206" duration="5567000" />
+      <workItem from="1776953425641" duration="584000" />
     </task>
     <servers />
   </component>

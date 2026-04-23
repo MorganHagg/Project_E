@@ -5,6 +5,8 @@
 #include "Kismet/GameplayStatics.h"
 #include "Components/DecalComponent.h"
 #include "Materials/MaterialInstanceDynamic.h"
+// Custom classes
+#include "../Misc/StatNames.h"
 // Generated
 #include "UnitBase.generated.h"
 
@@ -73,6 +75,11 @@ public:
 	AAIBase* MyController = nullptr;
 	
 	void SetController();
+	void InitStats();
+	UPROPERTY(BlueprintReadWrite)
+	TMap<FName, int> Stats;
+	int* GetStat(FName StatName);
+	void ChangeStat(FName StatName, int NewStatValue);
 	
 	UFUNCTION(BlueprintCallable)
 	void SetUnitType(EUnitFaction NewType);

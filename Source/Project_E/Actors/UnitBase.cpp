@@ -31,6 +31,7 @@ void AUnitBase::PreInitializeComponents()
 		AIControllerClass = AAIEnemy::StaticClass();
 		break;
 	}
+	
 }
 
 void AUnitBase::BeginPlay()
@@ -38,6 +39,7 @@ void AUnitBase::BeginPlay()
 	Super::BeginPlay();
 	CreateDecal();
 	SetController();
+	InitStats();
 }
 
 void AUnitBase::CreateDecal()
@@ -107,6 +109,31 @@ void AUnitBase::SetController()
 	Controller = Cast<AControllerBase>(GetWorld()->GetFirstPlayerController());
 	Controller->Squad.Add(this, false);
 	MyController = Cast<AAIBase>(this->GetController());
+}
+
+void AUnitBase::InitStats()
+{
+	Stats.Add(StatName::Health, 100);
+	Stats.Add(StatName::Armour, 100);
+	Stats.Add(StatName::MagicResist, -1);
+	Stats.Add(StatName::Strength, -1);
+	Stats.Add(StatName::Intellect, -1);
+	Stats.Add(StatName::Agility, -1);
+}
+
+int* AUnitBase::GetStat(FName StatName)
+{
+	return Stats.Find(StatName);
+}
+
+void AUnitBase::ChangeStat(FName StatName, int NewStatValue)
+{
+	if (int* Value = Stats.Find(StatName))
+		*Value = NewStatValue;
+	else
+		UE_LOG(LogTemp, Warning, TEXT("%s was not found in %s."),
+			*StatName.ToString(),
+			*GetOwner()->GetName());
 }
 
 void AUnitBase::SetUnitType(EUnitFaction NewType)
