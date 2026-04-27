@@ -3,6 +3,7 @@
 namespace StatName
 {
 	static const FName Health("Health");
+	static const FName MaxHealth("MaxHealth");
 	static const FName Armour("Armour");
 	static const FName MagicResist("MagicResist");
 	static const FName Strength("Strength");

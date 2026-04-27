@@ -14,10 +14,11 @@ class PROJECT_E_API IDamageable
 {
 	GENERATED_BODY()
 
-	int Getheath();
+	virtual int GetCurrentHealth() = 0;
+	virtual int GetMaxHealth() = 0;
 
-	void TakeDamage(int damage);
-	void GetHealth(int health);
+	virtual void ReceiveDamage(int Damage) = 0;
+	virtual void ReceiveHeal(int Healing) = 0;
 public:
 };
 

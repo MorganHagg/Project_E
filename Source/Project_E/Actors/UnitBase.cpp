@@ -2,6 +2,8 @@
 #include "UnitBase.h"
 #include "Components/CapsuleComponent.h"
 #include "BehaviorTree/BehaviorTree.h"
+#include "Components/DecalComponent.h"
+#include "Materials/MaterialInstanceDynamic.h"
 // Custom classes
 #include "../Input/ControllerBase.h"
 #include "../AI/AIBase.h"
@@ -17,28 +19,29 @@ AUnitBase::AUnitBase()
 		nullptr,
 		TEXT("/Game/Assets/Decal/UnitTarget_Mat")
 	);
+	AutoPossessAI = EAutoPossessAI::PlacedInWorldOrSpawned;
 }
 
 void AUnitBase::PreInitializeComponents()
 {
 	Super::PreInitializeComponents();
-	switch (UnitType)
-	{
+	if (AIControllerClass)
+		switch (UnitType)
+		{
 	case EUnitFaction::Controlled:
-		AIControllerClass = AAIPlayer::StaticClass();
-		break;
+			AIControllerClass = AAIPlayer::StaticClass();
+			break;
 	case EUnitFaction::Hostile:
-		AIControllerClass = AAIEnemy::StaticClass();
-		break;
-	}
-	
+			AIControllerClass = AAIEnemy::StaticClass();
+			break;
+		}
 }
 
 void AUnitBase::BeginPlay()
 {
 	Super::BeginPlay();
 	CreateDecal();
-	SetController();
+	SetPlayerController();
 	InitStats();
 }
 
@@ -77,13 +80,12 @@ void AUnitBase::Tick(float DeltaTime)
 
 void AUnitBase::ToggleSelect()
 {
-	if (!Controller) return;
+	if (!PlayerController) return;
 
-	if (bool* bSelected = Controller->Squad.Find(this))
+	if (bool* bSelected = PlayerController->Squad.Find(this))
 	{
 		*bSelected = !(*bSelected);
 	}
-	
 }
 
 void AUnitBase::DrawDecal()
@@ -104,16 +106,20 @@ void AUnitBase::SetDecalColor(FLinearColor Color)
 	DecalMatInstance->SetVectorParameterValue(TEXT("TintColor"), Color);
 }
 
-void AUnitBase::SetController()
+void AUnitBase::SetPlayerController()
 {
-	Controller = Cast<AControllerBase>(GetWorld()->GetFirstPlayerController());
-	Controller->Squad.Add(this, false);
-	MyController = Cast<AAIBase>(this->GetController());
+	PlayerController = Cast<AControllerBase>(GetWorld()->GetFirstPlayerController());
+}
+
+void AUnitBase::SetAIController(AAIBase* NewAIController)
+{
+	AIController = NewAIController;
 }
 
 void AUnitBase::InitStats()
 {
 	Stats.Add(StatName::Health, 100);
+	Stats.Add(StatName::MaxHealth, 100);
 	Stats.Add(StatName::Armour, 100);
 	Stats.Add(StatName::MagicResist, -1);
 	Stats.Add(StatName::Strength, -1);
@@ -121,9 +127,15 @@ void AUnitBase::InitStats()
 	Stats.Add(StatName::Agility, -1);
 }
 
-int* AUnitBase::GetStat(FName StatName)
+bool AUnitBase::GetStat(FName StatName, int& OutValue) const
 {
-	return Stats.Find(StatName);
+	if (const int* Value = Stats.Find(StatName))
+	{
+		OutValue = *Value;
+		return true;
+	}
+
+	return false;
 }
 
 void AUnitBase::ChangeStat(FName StatName, int NewStatValue)
@@ -133,7 +145,7 @@ void AUnitBase::ChangeStat(FName StatName, int NewStatValue)
 	else
 		UE_LOG(LogTemp, Warning, TEXT("%s was not found in %s."),
 			*StatName.ToString(),
-			*GetOwner()->GetName());
+			*GetName());
 }
 
 void AUnitBase::SetUnitType(EUnitFaction NewType)
@@ -142,25 +154,40 @@ void AUnitBase::SetUnitType(EUnitFaction NewType)
 	switch (UnitType)
 	{
 	case EUnitFaction::Controlled:
-		UE_LOG(LogTemp, Warning, TEXT("I am now controlled"))
-		Controller->AddToSquad(this);
+		PlayerController->AddToSquad(this);
 		break;
 	case EUnitFaction::Hostile:
-		if (Controller->Squad.Contains(this))
-			Controller->RemoveFromSquad(this);
-		UE_LOG(LogTemp, Warning, TEXT("I am now hostile!"))	
+		if (PlayerController->Squad.Contains(this))
+			PlayerController->RemoveFromSquad(this);	
 		break;
 	}
 }
-
-void AUnitBase::Attack()
-{
-	UE_LOG(LogTemp, Warning, TEXT("Attacking unit"));
-}
-
 void AUnitBase::MoveTo(FVector Location)
 {
-	MyController->SetTargetLocation(Location);
+	if (AIController)
+		AIController->SetDestination(Location);
+}
+
+AUnitBase* AUnitBase::GetTarget()
+{
+	if (AIController)
+	{
+		return AIController->GetTarget();
+	}
+	else
+		return nullptr;
+}
+
+void AUnitBase::ClearTarget()
+{
+	if (AIController)
+		AIController->ClearTarget();
+}
+
+void AUnitBase::SetTarget(AUnitBase* Target)
+{
+	if (AIController)
+		AIController->SetTarget(Target);
 }
 
 void AUnitBase::AddAbility(TSubclassOf<UAbility> NewAbility)
@@ -196,6 +223,49 @@ void AUnitBase::RemoveAbility(TSubclassOf<UAbility> OldAbility)
 
 void AUnitBase::ActivateAbility(int AbilityIndex)
 {
+	if (!GrantedAbilities.IsValidIndex(AbilityIndex)) return;
 	UAbility* Ability = NewObject<UAbility>(this, GrantedAbilities[AbilityIndex]);
-	Ability->Activate();
+	if (Ability)
+		Ability->Initiate(this);
+}
+
+int AUnitBase::GetCurrentHealth()
+{
+	int Health;
+	GetStat(StatName::Health,Health);
+	return Health;
+}
+
+int AUnitBase::GetMaxHealth()
+{
+	int MaxHealth;
+	GetStat(StatName::MaxHealth,MaxHealth);
+	return MaxHealth;
+}
+
+void AUnitBase::ReceiveDamage(int Damage)
+{
+	ChangeHealth(-Damage);
+}
+
+void AUnitBase::ReceiveHeal(int Healing)
+{
+	ChangeHealth(Healing);
+}
+
+void AUnitBase::ChangeHealth(int ChangeInHealth)
+{
+	int Health;
+	int MaxHealth;
+	GetStat(StatName::Health,Health);
+	GetStat(StatName::MaxHealth,MaxHealth);
+	int NewHealth = FMath::Clamp(Health + ChangeInHealth, 0, MaxHealth);;
+	ChangeStat(StatName::Health, NewHealth);
+	if (NewHealth == 0)
+		Die();
+}
+
+void AUnitBase::Die()
+{
+	UE_LOG(LogTemp, Warning, TEXT("I died lol"))
 }

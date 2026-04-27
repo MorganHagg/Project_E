@@ -9,6 +9,7 @@
 // Forward declarations
 class AProjectile;
 class AUnitBase;
+class UActionManager;
 
 // Effects
 class FEffect_ProjectileAction : public FPendingLatentAction
@@ -38,14 +39,16 @@ class PROJECT_E_API UAbility : public UObject
 	UAbility();
 
 public:
-	UFUNCTION(BlueprintCallable, Category="Ability")
-	AUnitBase* GetOwner();
-
+	UPROPERTY(BlueprintReadOnly)
+	AUnitBase* MyOwner;
+	
 	UPROPERTY(BlueprintReadWrite)
 	AUnitBase* MyTarget;
 
 	UWorld* World;
 	FActorSpawnParameters SpawnParams;
+
+	void Initiate(AUnitBase* Owner);
 	
 	UFUNCTION(BlueprintNativeEvent)
 	void Activate();

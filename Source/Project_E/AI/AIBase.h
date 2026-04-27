@@ -4,6 +4,8 @@
 #include "AIController.h"
 #include "AIBase.generated.h"
 
+class AUnitBase;
+
 UCLASS()
 class PROJECT_E_API AAIBase : public AAIController
 {
@@ -11,15 +13,17 @@ class PROJECT_E_API AAIBase : public AAIController
 
 public:
 	AAIBase();
-
 protected:
-	virtual void BeginPlay() override;
-
+	virtual void OnPossess(APawn* InPawn) override;
 public:
 	virtual void Tick(float DeltaTime) override;
 
-	void SetTargetLocation(FVector Location);
+	void SetDestination(FVector Location);
+	void SetTarget(AUnitBase* Target);
+	AUnitBase* GetTarget();
+	void ClearTarget();
 
 	// Blackboard names
-	const FName BB_TargetLocation = TEXT("TargetLocation");
+	const FName BB_Destination = TEXT("Destination");
+	const FName BB_Target = TEXT("Target");
 };

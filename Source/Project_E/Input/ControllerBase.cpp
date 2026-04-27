@@ -91,7 +91,7 @@ void AControllerBase::CommandPressed()
 			for (auto& Pair : Squad)
 			{
 				if (Pair.Value == true)
-					Pair.Key->Attack();
+					Pair.Key->SetTarget(Target);
 			}
 			break;
 		}

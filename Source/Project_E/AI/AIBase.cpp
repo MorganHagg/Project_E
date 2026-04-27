@@ -10,11 +10,13 @@ AAIBase::AAIBase()
 	PrimaryActorTick.bCanEverTick = true;
 }
 
-void AAIBase::BeginPlay()
+void AAIBase::OnPossess(APawn* InPawn)
 {
-	Super::BeginPlay();
-	if (AUnitBase* Unit = Cast<AUnitBase>(GetPawn()))
+	Super::OnPossess(InPawn);
+	if (AUnitBase* Unit = Cast<AUnitBase>(InPawn))
 	{
+		Unit->SetAIController(this);
+		
 		if (Unit->BehaviorTree)
 			RunBehaviorTree(Unit->BehaviorTree);
 		else
@@ -27,9 +29,22 @@ void AAIBase::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-void AAIBase::SetTargetLocation(FVector Location)
+void AAIBase::SetDestination(FVector Location)
 {
-	UE_LOG(LogTemp, Log, TEXT("My Vector: %s"), *Location.ToString());
-	GetBlackboardComponent()->SetValueAsVector(BB_TargetLocation, Location);
+	GetBlackboardComponent()->SetValueAsVector(BB_Destination, Location);
 }
 
+void AAIBase::SetTarget(AUnitBase* Target)
+{
+	GetBlackboardComponent()->SetValueAsObject(BB_Target, Target);
+}
+
+AUnitBase* AAIBase::GetTarget()
+{
+	return Cast<AUnitBase>(GetBlackboardComponent()->GetValueAsObject(BB_Target));;
+}
+
+void AAIBase::ClearTarget()
+{
+	GetBlackboardComponent()->SetValueAsObject(BB_Target, nullptr);
+}

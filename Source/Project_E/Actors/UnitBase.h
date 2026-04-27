@@ -3,10 +3,9 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Kismet/GameplayStatics.h"
-#include "Components/DecalComponent.h"
-#include "Materials/MaterialInstanceDynamic.h"
 // Custom classes
 #include "../Misc/StatNames.h"
+#include "../Interface/Damageable.h"
 // Generated
 #include "UnitBase.generated.h"
 
@@ -25,7 +24,7 @@ enum class EUnitFaction : uint8
 class AControllerBase;
 
 UCLASS()
-class PROJECT_E_API AUnitBase : public ACharacter
+class PROJECT_E_API AUnitBase : public ACharacter, public IDamageable
 {
 	GENERATED_BODY()
 
@@ -71,21 +70,29 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI")
 	EUnitFaction UnitType = EUnitFaction::Controlled;
 
-	AControllerBase* Controller = nullptr;
-	AAIBase* MyController = nullptr;
+	AControllerBase* PlayerController = nullptr;
+	AAIBase* AIController = nullptr;
 	
-	void SetController();
+	void SetPlayerController();
+	void SetAIController(AAIBase* NewAIController);
 	void InitStats();
 	UPROPERTY(BlueprintReadWrite)
 	TMap<FName, int> Stats;
-	int* GetStat(FName StatName);
+	bool GetStat(FName StatName, int& OutValue) const;
 	void ChangeStat(FName StatName, int NewStatValue);
 	
 	UFUNCTION(BlueprintCallable)
 	void SetUnitType(EUnitFaction NewType);
 
-	void Attack();
 	void MoveTo(FVector Location);
+
+	void SetTarget(AUnitBase* Target);
+	
+	UFUNCTION(BlueprintCallable)
+	AUnitBase* GetTarget();
+
+	UFUNCTION(BlueprintCallable)
+	void ClearTarget();
 
 	UPROPERTY(EditAnywhere, Category = "AI")
 	UBehaviorTree* BehaviorTree;
@@ -105,8 +112,14 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void ActivateAbility(int AbilityIndex);
 	
-	AUnitBase* MyTarget;
+	
 
-	UFUNCTION(BlueprintCallable)
-	AUnitBase* GetMyTarget() {return MyTarget;};
+	// Interface functions
+	int GetCurrentHealth();
+	int GetMaxHealth();
+	void ReceiveDamage(int Damage);
+	void ReceiveHeal(int Healing);
+	void ChangeHealth(int ChangeInHealth);
+
+	void Die();
 };

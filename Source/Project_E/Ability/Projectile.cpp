@@ -32,12 +32,17 @@ void AProjectile::Travel(float DeltaTime)
 
 	if (FVector::Dist(NewLocation, Destination) < 5.f)
 	{
-		OnHitCallback();
+		OnFinished();
 		Destroy();
 	}
 }
 
-void AProjectile::OnHitCallback()
+void AProjectile::SetMyAbility(UAbility* Ability)
+{
+	MyAbility = Ability;
+}
+
+void AProjectile::OnFinished()
 {
 	OnHit.ExecuteIfBound();
 }

@@ -5,6 +5,8 @@
 // Generated
 #include "Projectile.generated.h"
 
+class UAbility;
+
 DECLARE_DELEGATE(FOnProjectileHit);
 
 UCLASS()
@@ -22,13 +24,19 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	void Travel(float DeltaTime);
-
+	
 	UPROPERTY(VisibleAnywhere)
 	UStaticMeshComponent* MeshComponent;
+
+	UFUNCTION()
+	void SetMyAbility(UAbility* Ability);
+	UPROPERTY(VisibleAnywhere)
+	UAbility* MyAbility;
+	
 	FVector Destination;
 	float Speed;
-
-	void OnHitCallback();
+	int TaskID;
+	void OnFinished();
 	
 	FOnProjectileHit OnHit;
 };
