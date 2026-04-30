@@ -12,27 +12,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85a82e2a-183c-4528-aacd-187cd00cb16d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Source/Project_E/AI/Tasks/BTT_BaseTask.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/Project_E/AI/Tasks/BTT_BaseTask.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project_E/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project_E/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Abilities/Arrow.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Framework/AI/BB_PlayerUnits.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/AI/BB_PlayerUnits.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Framework/AI/BT_PlayerUnits.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/AI/BT_PlayerUnits.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/AI/Tasks/BTT_Attack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/AI/Tasks/BTT_Attack.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/AI/Tasks/BTT_Test.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/BP_PlayableCharacter.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Framework/Input/BP_ControllerBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/Input/BP_ControllerBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Framework/Units/BP_Warrior.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/Units/BP_Warrior.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/Units/BP_Warrior.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Levels/Test.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Test.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project_E.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/Project_E.uproject" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/AI/AIBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/AI/AIBase.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/AI/AIBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/AI/AIBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Project_E/AI/AIEnemy.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/AI/AIEnemy.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/AI/AIEnemy.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/AI/AIEnemy.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/AI/AIPlayer.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/AI/AIPlayer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/AI/Tasks/BTT_BaseTask.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/AI/Task/BTT_BaseTask.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/AI/Tasks/BTT_BaseTask.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/AI/Task/BTT_BaseTask.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/Ability/Ability.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Ability/Ability.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/Ability/Ability.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Ability/Ability.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Project_E/Ability/Projectile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Ability/Projectile.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Project_E/Ability/Projectile.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Ability/Projectile.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/Actors/UnitBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Actors/UnitBase.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/Actors/UnitBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Actors/UnitBase.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/Input/ControllerBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Input/ControllerBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Project_E/Interface/Damageable.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Interface/Damageable.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/Misc/StatNames.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Misc/StatNames.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Project_E/Project_E.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Project_E.Build.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,8 +69,20 @@
     <setting file="file://C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/CoreUObject/Public/UObject/Class.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/CoreUObject/Public/UObject/UObjectGlobals.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Engine/Classes/Engine/GameInstance.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Project_E/AI/AIBase.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Project_E/AI/AIBase.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Project_E/AI/Tasks/BTT_BaseTask.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Project_E/AI/Tasks/BTT_BaseTask.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Project_E/Actors/UnitBase.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Project_E/Actors/UnitBase.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Project_E/Input/ControllerBase.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Project_E/Input/ControllerBase.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Project_E/Misc/StatNames.h" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="Toolset" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 4
@@ -226,7 +242,15 @@
       <workItem from="1777031261157" duration="6780000" />
       <workItem from="1777288367531" duration="2742000" />
       <workItem from="1777291244873" duration="15118000" />
-      <workItem from="1777307039938" duration="2774000" />
+      <workItem from="1777307039938" duration="3582000" />
+      <workItem from="1777463341122" duration="4934000" />
+      <workItem from="1777470534741" duration="40000" />
+      <workItem from="1777470614703" duration="110000" />
+      <workItem from="1777470761453" duration="48000" />
+      <workItem from="1777470877451" duration="1570000" />
+      <workItem from="1777472624934" duration="2801000" />
+      <workItem from="1777533746245" duration="402000" />
+      <workItem from="1777534203515" duration="1301000" />
     </task>
     <servers />
   </component>

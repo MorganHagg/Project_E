@@ -4,6 +4,7 @@
 #include "EnhancedInputComponent.h"
 // Custom classes
 #include "../HUD/MainHUD.h"
+#include "Project_E/AI/AIBase.h"
 
 AControllerBase::AControllerBase()
 {
@@ -91,7 +92,10 @@ void AControllerBase::CommandPressed()
 			for (auto& Pair : Squad)
 			{
 				if (Pair.Value == true)
+				{
 					Pair.Key->SetTarget(Target);
+					Pair.Key->AIController->SetAction(EAction::Attacking);
+				}
 			}
 			break;
 		}
@@ -101,7 +105,10 @@ void AControllerBase::CommandPressed()
 		for (auto& Pair : Squad)
 		{
 			if (Pair.Value == true)
+			{
 				Pair.Key->MoveTo(Hit.Location);
+				Pair.Key->AIController->SetAction(EAction::Walking);
+			}
 		}
 	}
 }

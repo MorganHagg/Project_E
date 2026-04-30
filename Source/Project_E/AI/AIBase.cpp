@@ -48,3 +48,13 @@ void AAIBase::ClearTarget()
 {
 	GetBlackboardComponent()->SetValueAsObject(BB_Target, nullptr);
 }
+
+void AAIBase::SetInRange(bool bInRange)
+{
+	GetBlackboardComponent()->SetValueAsBool(BB_bInRange, bInRange);
+}
+
+void AAIBase::SetAction(EAction Action)
+{
+	GetBlackboardComponent()->SetValueAsEnum(BB_Action, static_cast<int>(Action));
+}

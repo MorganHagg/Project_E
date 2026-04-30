@@ -21,6 +21,14 @@ enum class EUnitFaction : uint8
 	Hostile
 };
 
+UENUM(BlueprintType)
+enum class EAutoAttack : uint8
+{
+	Sword,
+	Bow,
+	Staff
+};
+
 class AControllerBase;
 
 UCLASS()
@@ -77,9 +85,9 @@ public:
 	void SetAIController(AAIBase* NewAIController);
 	void InitStats();
 	UPROPERTY(BlueprintReadWrite)
-	TMap<FName, int> Stats;
-	bool GetStat(FName StatName, int& OutValue) const;
-	void ChangeStat(FName StatName, int NewStatValue);
+	TMap<EStat, int> Stats;
+	bool GetStat(EStat Stat, int& OutValue) const;
+	void ChangeStat(EStat Stat, int NewStatValue);
 	
 	UFUNCTION(BlueprintCallable)
 	void SetUnitType(EUnitFaction NewType);
@@ -122,4 +130,10 @@ public:
 	void ChangeHealth(int ChangeInHealth);
 
 	void Die();
+
+	UPROPERTY(BlueprintReadOnly)
+	EAutoAttack AutoAttack = EAutoAttack::Sword;
+
+	UFUNCTION(BlueprintCallable)
+	void ChangeWeapon(EAutoAttack NewType);
 };

@@ -1,12 +1,14 @@
 ﻿#pragma once
 
-namespace StatName
+UENUM(BlueprintType)
+enum class EStat : uint8
 {
-	static const FName Health("Health");
-	static const FName MaxHealth("MaxHealth");
-	static const FName Armour("Armour");
-	static const FName MagicResist("MagicResist");
-	static const FName Strength("Strength");
-	static const FName Intellect("Intellect");
-	static const FName Agility("Agility");
-}
+	Health,
+	MaxHealth,
+	Armour,
+	MagicResist,
+	Strength,
+	Intellect,
+	Agility,
+	Range
+};

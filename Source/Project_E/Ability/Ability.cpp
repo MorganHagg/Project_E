@@ -38,8 +38,8 @@ void UAbility::RunEffect_Projectile(FLatentActionInfo LatentInfo, UStaticMesh* M
 	if (!MyOwner || !World) return;
 
 	FLatentActionManager& LAM = World->GetLatentActionManager();
-	FEffect_ProjectileAction* Action = new FEffect_ProjectileAction(LatentInfo);
-	LAM.AddNewAction(LatentInfo.CallbackTarget, LatentInfo.UUID, Action);
+	FEffect_ProjectileAction* ProjectileAction = new FEffect_ProjectileAction(LatentInfo);
+	LAM.AddNewAction(LatentInfo.CallbackTarget, LatentInfo.UUID, ProjectileAction);
 
 	AProjectile* Projectile = World->SpawnActor<AProjectile>(
 		AProjectile::StaticClass(),
@@ -54,10 +54,10 @@ void UAbility::RunEffect_Projectile(FLatentActionInfo LatentInfo, UStaticMesh* M
 		Projectile->MeshComponent->SetStaticMesh(Mesh);
 
 	TWeakObjectPtr<UAbility> WeakThis = this;
-	Projectile->OnHit.BindLambda([WeakThis, Action]()
+	Projectile->OnHit.BindLambda([WeakThis, ProjectileAction]()
 	{
 		if (WeakThis.IsValid())
-			Action->bComplete = true;
+			ProjectileAction->bComplete = true;
 	});
 }
 

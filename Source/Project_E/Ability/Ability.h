@@ -73,4 +73,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category="Ability")
 	AActor* RunEffect_SpawnObject(AActor* SpawnActor, FVector SpawnLocation);
+
+	UPROPERTY(BlueprintReadOnly)
+	float CoolDown = 0.f;
 };

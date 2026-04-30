@@ -7,8 +7,6 @@
 // Custom classes
 #include "../Input/ControllerBase.h"
 #include "../AI/AIBase.h"
-#include "../AI/AIPlayer.h"
-#include "../AI/AIEnemy.h"
 #include "../Ability/Ability.h"
 
 AUnitBase::AUnitBase()
@@ -26,15 +24,7 @@ void AUnitBase::PreInitializeComponents()
 {
 	Super::PreInitializeComponents();
 	if (AIControllerClass)
-		switch (UnitType)
-		{
-	case EUnitFaction::Controlled:
-			AIControllerClass = AAIPlayer::StaticClass();
-			break;
-	case EUnitFaction::Hostile:
-			AIControllerClass = AAIEnemy::StaticClass();
-			break;
-		}
+		AIControllerClass = AAIBase::StaticClass();
 }
 
 void AUnitBase::BeginPlay()
@@ -118,18 +108,19 @@ void AUnitBase::SetAIController(AAIBase* NewAIController)
 
 void AUnitBase::InitStats()
 {
-	Stats.Add(StatName::Health, 100);
-	Stats.Add(StatName::MaxHealth, 100);
-	Stats.Add(StatName::Armour, 100);
-	Stats.Add(StatName::MagicResist, -1);
-	Stats.Add(StatName::Strength, -1);
-	Stats.Add(StatName::Intellect, -1);
-	Stats.Add(StatName::Agility, -1);
+	Stats.Add(EStat::Health, 100);
+	Stats.Add(EStat::MaxHealth, 100);
+	Stats.Add(EStat::Armour, 100);
+	Stats.Add(EStat::MagicResist, 100);
+	Stats.Add(EStat::Strength, 100);
+	Stats.Add(EStat::Agility, 100);
+	Stats.Add(EStat::Intellect, 100);
+	Stats.Add(EStat::Range, 500);
 }
 
-bool AUnitBase::GetStat(FName StatName, int& OutValue) const
+bool AUnitBase::GetStat(EStat Stat, int& OutValue) const
 {
-	if (const int* Value = Stats.Find(StatName))
+	if (const int* Value = Stats.Find(Stat))
 	{
 		OutValue = *Value;
 		return true;
@@ -138,13 +129,13 @@ bool AUnitBase::GetStat(FName StatName, int& OutValue) const
 	return false;
 }
 
-void AUnitBase::ChangeStat(FName StatName, int NewStatValue)
+void AUnitBase::ChangeStat(EStat Stat, int NewStatValue)
 {
-	if (int* Value = Stats.Find(StatName))
+	if (int* Value = Stats.Find(Stat))
 		*Value = NewStatValue;
 	else
 		UE_LOG(LogTemp, Warning, TEXT("%s was not found in %s."),
-			*StatName.ToString(),
+			*UEnum::GetDisplayValueAsText(Stat).ToString(),
 			*GetName());
 }
 
@@ -232,14 +223,14 @@ void AUnitBase::ActivateAbility(int AbilityIndex)
 int AUnitBase::GetCurrentHealth()
 {
 	int Health;
-	GetStat(StatName::Health,Health);
+	GetStat(EStat::Health,Health);
 	return Health;
 }
 
 int AUnitBase::GetMaxHealth()
 {
 	int MaxHealth;
-	GetStat(StatName::MaxHealth,MaxHealth);
+	GetStat(EStat::MaxHealth,MaxHealth);
 	return MaxHealth;
 }
 
@@ -257,10 +248,10 @@ void AUnitBase::ChangeHealth(int ChangeInHealth)
 {
 	int Health;
 	int MaxHealth;
-	GetStat(StatName::Health,Health);
-	GetStat(StatName::MaxHealth,MaxHealth);
+	GetStat(EStat::Health,Health);
+	GetStat(EStat::MaxHealth,MaxHealth);
 	int NewHealth = FMath::Clamp(Health + ChangeInHealth, 0, MaxHealth);;
-	ChangeStat(StatName::Health, NewHealth);
+	ChangeStat(EStat::Health, NewHealth);
 	if (NewHealth == 0)
 		Die();
 }
@@ -268,4 +259,9 @@ void AUnitBase::ChangeHealth(int ChangeInHealth)
 void AUnitBase::Die()
 {
 	UE_LOG(LogTemp, Warning, TEXT("I died lol"))
+}
+
+void AUnitBase::ChangeWeapon(EAutoAttack NewType)
+{
+	AutoAttack = NewType;
 }
