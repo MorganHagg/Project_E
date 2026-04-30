@@ -4,7 +4,7 @@
 #include "GameFramework/Character.h"
 #include "Kismet/GameplayStatics.h"
 // Custom classes
-#include "../Misc/StatNames.h"
+#include "../Misc/Stat.h"
 #include "../Interface/Damageable.h"
 // Generated
 #include "UnitBase.generated.h"
@@ -19,14 +19,6 @@ enum class EUnitFaction : uint8
 {
 	Controlled,
 	Hostile
-};
-
-UENUM(BlueprintType)
-enum class EAutoAttack : uint8
-{
-	Sword,
-	Bow,
-	Staff
 };
 
 class AControllerBase;
@@ -130,10 +122,4 @@ public:
 	void ChangeHealth(int ChangeInHealth);
 
 	void Die();
-
-	UPROPERTY(BlueprintReadOnly)
-	EAutoAttack AutoAttack = EAutoAttack::Sword;
-
-	UFUNCTION(BlueprintCallable)
-	void ChangeWeapon(EAutoAttack NewType);
 };

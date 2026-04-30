@@ -51,7 +51,7 @@ public:
 	void Initiate(AUnitBase* Owner);
 	
 	UFUNCTION(BlueprintNativeEvent)
-	void Activate();
+	void Activate(AUnitBase* Owner, AAIBase* AIController);
 
 	UFUNCTION(BlueprintCallable)
 	void EndAbility();

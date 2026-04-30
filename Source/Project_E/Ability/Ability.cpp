@@ -11,18 +11,12 @@ UAbility::UAbility()
 void UAbility::Initiate(AUnitBase* Owner)
 {
 	MyOwner = Owner;
-
-	if (!MyOwner)
-	{
-		UE_LOG(LogTemp, Error, TEXT("Missing Owner"));
-		EndAbility();
-		return;
-	}
+	if (!MyOwner) { EndAbility(); return; }
 	World = MyOwner->GetWorld();
-	Activate();
+	Activate(MyOwner, MyOwner->AIController);
 }
 
-void UAbility::Activate_Implementation()
+void UAbility::Activate_Implementation(AUnitBase* Owner, AAIBase* AIController)
 {
 	UE_LOG(LogTemp, Error, TEXT("%s has no Activate implementation"), *GetName());
 }

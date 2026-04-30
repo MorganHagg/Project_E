@@ -8,6 +8,7 @@
 #include "../Input/ControllerBase.h"
 #include "../AI/AIBase.h"
 #include "../Ability/Ability.h"
+#include "../Misc/StatStruct.h"
 
 AUnitBase::AUnitBase()
 {
@@ -25,6 +26,7 @@ void AUnitBase::PreInitializeComponents()
 	Super::PreInitializeComponents();
 	if (AIControllerClass)
 		AIControllerClass = AAIBase::StaticClass();
+	InitStats();
 }
 
 void AUnitBase::BeginPlay()
@@ -32,7 +34,6 @@ void AUnitBase::BeginPlay()
 	Super::BeginPlay();
 	CreateDecal();
 	SetPlayerController();
-	InitStats();
 }
 
 void AUnitBase::CreateDecal()
@@ -108,14 +109,21 @@ void AUnitBase::SetAIController(AAIBase* NewAIController)
 
 void AUnitBase::InitStats()
 {
-	Stats.Add(EStat::Health, 100);
-	Stats.Add(EStat::MaxHealth, 100);
-	Stats.Add(EStat::Armour, 100);
-	Stats.Add(EStat::MagicResist, 100);
-	Stats.Add(EStat::Strength, 100);
-	Stats.Add(EStat::Agility, 100);
-	Stats.Add(EStat::Intellect, 100);
-	Stats.Add(EStat::Range, 500);
+	UDataTable* StatTable = LoadObject<UDataTable>(nullptr,
+		TEXT("/Game/Framework/DataTable/DT_UnitStatTable.DT_UnitStatTable"));
+	if (!StatTable) return;
+
+	FName RowName = FName(*GetClass()->GetDisplayNameText().ToString());
+	FStatStruct* Row = StatTable->FindRow<FStatStruct>(RowName, TEXT("InitStats"));
+	UE_LOG(LogTemp, Warning, TEXT("Row found, stat count: %d"), Row->Stats.Num());
+	if (!Row)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("No stat row found for %s"), *GetClass()->GetDisplayNameText().ToString());
+		return;
+	}	
+	
+	Stats = Row->Stats;
+	UE_LOG(LogTemp, Warning, TEXT("Copied stat count: %d"), Stats.Num());
 }
 
 bool AUnitBase::GetStat(EStat Stat, int& OutValue) const
@@ -259,9 +267,4 @@ void AUnitBase::ChangeHealth(int ChangeInHealth)
 void AUnitBase::Die()
 {
 	UE_LOG(LogTemp, Warning, TEXT("I died lol"))
-}
-
-void AUnitBase::ChangeWeapon(EAutoAttack NewType)
-{
-	AutoAttack = NewType;
 }
