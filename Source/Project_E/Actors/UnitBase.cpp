@@ -8,7 +8,7 @@
 #include "../Input/ControllerBase.h"
 #include "../AI/AIBase.h"
 #include "../Ability/Ability.h"
-#include "../Misc/StatStruct.h"
+#include "../Misc/FUnitDataRow.h"
 
 AUnitBase::AUnitBase()
 {
@@ -26,7 +26,6 @@ void AUnitBase::PreInitializeComponents()
 	Super::PreInitializeComponents();
 	if (AIControllerClass)
 		AIControllerClass = AAIBase::StaticClass();
-	InitStats();
 }
 
 void AUnitBase::BeginPlay()
@@ -107,23 +106,28 @@ void AUnitBase::SetAIController(AAIBase* NewAIController)
 	AIController = NewAIController;
 }
 
-void AUnitBase::InitStats()
+void AUnitBase::InitFromData()
 {
 	UDataTable* StatTable = LoadObject<UDataTable>(nullptr,
-		TEXT("/Game/Framework/DataTable/DT_UnitStatTable.DT_UnitStatTable"));
+		TEXT("/Game/Framework/DataTable/DT_UnitData.DT_UnitData"));
 	if (!StatTable) return;
 
-	FName RowName = FName(*GetClass()->GetDisplayNameText().ToString());
-	FStatStruct* Row = StatTable->FindRow<FStatStruct>(RowName, TEXT("InitStats"));
-	UE_LOG(LogTemp, Warning, TEXT("Row found, stat count: %d"), Row->Stats.Num());
+	
+	FName RowName = FName(*StaticEnum<EUnitArchetype>()->GetNameStringByValue((int64)Archetype));
+	FFUnitDataRow* Row = StatTable->FindRow<FFUnitDataRow>(RowName, TEXT("InitData"));
 	if (!Row)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("No stat row found for %s"), *GetClass()->GetDisplayNameText().ToString());
 		return;
-	}	
+	}
 	
+	GetMesh()->SetSkeletalMesh(Row->Mesh);
+	BehaviorTree = Row->BehaviorTree;
+	if (AIController && BehaviorTree)
+		AIController->RunBehaviorTree(BehaviorTree);
+	GrantedAbilities = Row->DefaultAbilities;
 	Stats = Row->Stats;
-	UE_LOG(LogTemp, Warning, TEXT("Copied stat count: %d"), Stats.Num());
+	//UE_LOG(LogTemp, Warning, TEXT("Copied stat count: %d"), Stats.Num());
 }
 
 bool AUnitBase::GetStat(EStat Stat, int& OutValue) const
@@ -147,10 +151,10 @@ void AUnitBase::ChangeStat(EStat Stat, int NewStatValue)
 			*GetName());
 }
 
-void AUnitBase::SetUnitType(EUnitFaction NewType)
+void AUnitBase::SetFaction(EUnitFaction NewFaction)
 {
-	UnitType = NewType;
-	switch (UnitType)
+	UnitFaction = NewFaction;
+	switch (NewFaction)
 	{
 	case EUnitFaction::Controlled:
 		PlayerController->AddToSquad(this);
@@ -226,6 +230,11 @@ void AUnitBase::ActivateAbility(int AbilityIndex)
 	UAbility* Ability = NewObject<UAbility>(this, GrantedAbilities[AbilityIndex]);
 	if (Ability)
 		Ability->Initiate(this);
+}
+
+void AUnitBase::SetArchetype(EUnitArchetype NewArchetype)
+{
+	Archetype = NewArchetype;
 }
 
 int AUnitBase::GetCurrentHealth()

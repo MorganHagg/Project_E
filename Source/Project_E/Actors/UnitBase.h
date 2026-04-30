@@ -21,6 +21,14 @@ enum class EUnitFaction : uint8
 	Hostile
 };
 
+UENUM(BlueprintType)
+enum class EUnitArchetype : uint8
+{
+	Warrior,
+	Mage,
+	Ranger
+};
+
 class AControllerBase;
 
 UCLASS()
@@ -68,21 +76,21 @@ public:
 	float DecalThickness = 128.f;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI")
-	EUnitFaction UnitType = EUnitFaction::Controlled;
+	EUnitFaction UnitFaction = EUnitFaction::Controlled;
 
 	AControllerBase* PlayerController = nullptr;
 	AAIBase* AIController = nullptr;
 	
 	void SetPlayerController();
 	void SetAIController(AAIBase* NewAIController);
-	void InitStats();
+	void InitFromData ();
 	UPROPERTY(BlueprintReadWrite)
 	TMap<EStat, int> Stats;
 	bool GetStat(EStat Stat, int& OutValue) const;
 	void ChangeStat(EStat Stat, int NewStatValue);
 	
 	UFUNCTION(BlueprintCallable)
-	void SetUnitType(EUnitFaction NewType);
+	void SetFaction(EUnitFaction NewFaction);
 
 	void MoveTo(FVector Location);
 
@@ -112,8 +120,11 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void ActivateAbility(int AbilityIndex);
 	
-	
+	UPROPERTY(BlueprintReadWrite)
+	EUnitArchetype Archetype = EUnitArchetype::Warrior;
 
+	void SetArchetype(EUnitArchetype NewArchetype); 
+	
 	// Interface functions
 	int GetCurrentHealth();
 	int GetMaxHealth();

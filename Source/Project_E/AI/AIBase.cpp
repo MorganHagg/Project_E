@@ -17,10 +17,11 @@ void AAIBase::OnPossess(APawn* InPawn)
 	{
 		Unit->SetAIController(this);
 		
+		/*
 		if (Unit->BehaviorTree)
 			RunBehaviorTree(Unit->BehaviorTree);
 		else
-			UE_LOG(LogTemp, Warning, TEXT("%s has no BehaviorTree assigned"), *Unit->GetName());
+			UE_LOG(LogTemp, Warning, TEXT("%s has no BehaviorTree assigned"), *Unit->GetName());*/
 	}
 }
 

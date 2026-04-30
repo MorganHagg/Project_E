@@ -17,7 +17,7 @@ AControllerBase::AControllerBase()
 void AControllerBase::BeginPlay()
 {
 	Super::BeginPlay();
-	SetHUDRef();
+	SetUpReferences();
 	InputSetup();
 }
 
@@ -26,7 +26,7 @@ void AControllerBase::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-void AControllerBase::SetHUDRef()
+void AControllerBase::SetUpReferences()
 {
 	HUD = Cast<AMainHUD>(GetHUD());
 }
@@ -83,7 +83,7 @@ void AControllerBase::CommandPressed()
 
 	if (AUnitBase* Target = Cast<AUnitBase>(Hit.GetActor()))
 	{
-		switch (Target->UnitType)
+		switch (Target->UnitFaction)
 		{
 		case EUnitFaction::Controlled:
 			UE_LOG(LogTemp, Warning, TEXT("Friendly target"))
@@ -117,6 +117,7 @@ void AControllerBase::CommandReleased()
 {
 
 }
+
 
 void AControllerBase::AddToSquad(class AUnitBase* Unit)
 {

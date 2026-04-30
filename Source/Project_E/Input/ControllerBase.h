@@ -23,7 +23,7 @@ protected:
 public:
 	virtual void Tick(float DeltaTime) override;
 
-	void SetHUDRef();
+	void SetUpReferences();
 	void InputSetup();
 	FInputModeGameAndUI GameInput;
 
@@ -56,6 +56,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TMap<AUnitBase*, bool> Squad;
 
+	
 	void AddToSquad(class AUnitBase* Unit);
 	void RemoveFromSquad(class AUnitBase* Unit);
 	
@@ -63,4 +64,5 @@ public:
 	void UpdateSelectedUnits();
 
 	AMainHUD* HUD;
+
 };
