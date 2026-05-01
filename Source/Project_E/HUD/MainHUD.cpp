@@ -1,6 +1,6 @@
 ﻿#include "MainHUD.h"
-#include "../Actors/UnitBase.h"
-#include "../Input/ControllerBase.h"
+#include "../Unit/UnitBase.h"
+#include "../Input/PlayerControls.h"
 
 void AMainHUD::BeginPlay()
 {
@@ -10,7 +10,7 @@ void AMainHUD::BeginPlay()
 
 void AMainHUD::SetController()
 {
-	Controller = Cast<AControllerBase>(GetWorld()->GetFirstPlayerController());
+	Controller = Cast<APlayerControls>(GetWorld()->GetFirstPlayerController());
 }
 
 void AMainHUD::DrawHUD()

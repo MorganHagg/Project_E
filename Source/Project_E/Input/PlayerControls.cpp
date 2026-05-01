@@ -1,12 +1,12 @@
 ﻿// Engine classes
-#include "ControllerBase.h"
-#include "../Actors/UnitBase.h"
+#include "PlayerControls.h"
+#include "../Unit/UnitBase.h"
 #include "EnhancedInputComponent.h"
 // Custom classes
 #include "../HUD/MainHUD.h"
-#include "Project_E/AI/AIBase.h"
+#include "Project_E/AI/AIUnit.h"
 
-AControllerBase::AControllerBase()
+APlayerControls::APlayerControls()
 {
 	PrimaryActorTick.bCanEverTick = true;
 	bEnableClickEvents = true;
@@ -14,24 +14,24 @@ AControllerBase::AControllerBase()
 }
 
 
-void AControllerBase::BeginPlay()
+void APlayerControls::BeginPlay()
 {
 	Super::BeginPlay();
 	SetUpReferences();
 	InputSetup();
 }
 
-void AControllerBase::Tick(float DeltaTime)
+void APlayerControls::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 }
 
-void AControllerBase::SetUpReferences()
+void APlayerControls::SetUpReferences()
 {
 	HUD = Cast<AMainHUD>(GetHUD());
 }
 
-void AControllerBase::InputSetup()
+void APlayerControls::InputSetup()
 {
 	if (UEnhancedInputLocalPlayerSubsystem* Subsystem = 
 		ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer()))
@@ -42,12 +42,12 @@ void AControllerBase::InputSetup()
 
 	if (UEnhancedInputComponent* Input = CastChecked<UEnhancedInputComponent>(InputComponent))
 	{
-		Input->BindAction(IA_Select, ETriggerEvent::Started, this, &AControllerBase::SelectStarted);
-		Input->BindAction(IA_Select, ETriggerEvent::Completed, this, &AControllerBase::SelectReleased);
-		Input->BindAction(IA_Command, ETriggerEvent::Started, this, &AControllerBase::CommandPressed);
-		Input->BindAction(IA_Command, ETriggerEvent::Completed, this, &AControllerBase::CommandReleased);
-		Input->BindAction(IA_ShiftSelect, ETriggerEvent::Started, this, &AControllerBase::ShiftPressed);
-		Input->BindAction(IA_ShiftSelect, ETriggerEvent::Completed, this, &AControllerBase::ShiftReleased);
+		Input->BindAction(IA_Select, ETriggerEvent::Started, this, &APlayerControls::SelectStarted);
+		Input->BindAction(IA_Select, ETriggerEvent::Completed, this, &APlayerControls::SelectReleased);
+		Input->BindAction(IA_Command, ETriggerEvent::Started, this, &APlayerControls::CommandPressed);
+		Input->BindAction(IA_Command, ETriggerEvent::Completed, this, &APlayerControls::CommandReleased);
+		Input->BindAction(IA_ShiftSelect, ETriggerEvent::Started, this, &APlayerControls::ShiftPressed);
+		Input->BindAction(IA_ShiftSelect, ETriggerEvent::Completed, this, &APlayerControls::ShiftReleased);
 	}
 	
 	GameInput.SetLockMouseToViewportBehavior(EMouseLockMode::LockAlways);
@@ -55,14 +55,14 @@ void AControllerBase::InputSetup()
 	SetInputMode(GameInput);
 }
 
-void AControllerBase::SelectStarted()
+void APlayerControls::SelectStarted()
 {
 	HUD->StartSelection();
 	if (!bShiftHeld)
 		ClearSelectedUnits();
 }
 
-void AControllerBase::SelectReleased()
+void APlayerControls::SelectReleased()
 {
 	TArray<AUnitBase*> SelectedUnits;
 	SelectedUnits = HUD->EndSelection();
@@ -75,7 +75,7 @@ void AControllerBase::SelectReleased()
 	UpdateSelectedUnits();
 }
 
-void AControllerBase::CommandPressed()
+void APlayerControls::CommandPressed()
 {
 	FHitResult Hit;
 	
@@ -113,23 +113,23 @@ void AControllerBase::CommandPressed()
 	}
 }
 
-void AControllerBase::CommandReleased()
+void APlayerControls::CommandReleased()
 {
 
 }
 
-void AControllerBase::AddToSquad(class AUnitBase* Unit)
+void APlayerControls::AddToSquad(class AUnitBase* Unit)
 {
 	Squad.Add(Unit, false);
 }
 
-void AControllerBase::RemoveFromSquad(class AUnitBase* Unit)
+void APlayerControls::RemoveFromSquad(class AUnitBase* Unit)
 {
 	Squad.Remove(Unit);
 }
 
 
-void AControllerBase::ClearSelectedUnits()
+void APlayerControls::ClearSelectedUnits()
 {
 	for (auto& Pair : Squad)
 	{
@@ -137,7 +137,7 @@ void AControllerBase::ClearSelectedUnits()
 	}
 }
 
-void AControllerBase::UpdateSelectedUnits()
+void APlayerControls::UpdateSelectedUnits()
 {
 	for (auto& Pair : Squad)
 	{

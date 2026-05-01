@@ -2,8 +2,13 @@
 // Engine classes
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
+// Custom classes
+#include "../Input/AIControls.h"
 // Generated
 #include "AICommander.generated.h"
+
+class UBehaviorTree;
+class AAIControls;
 
 UCLASS()
 class PROJECT_E_API AAICommander : public APawn
@@ -19,5 +24,7 @@ protected:
 public:
 	virtual void Tick(float DeltaTime) override;
 
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	void SetAIController(AAIController* NewAIController);
+	
+	AAIControls* AIController;
 };

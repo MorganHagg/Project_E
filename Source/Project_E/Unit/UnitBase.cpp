@@ -5,8 +5,8 @@
 #include "Components/DecalComponent.h"
 #include "Materials/MaterialInstanceDynamic.h"
 // Custom classes
-#include "../Input/ControllerBase.h"
-#include "../AI/AIBase.h"
+#include "../Input/PlayerControls.h"
+#include "../AI/AIUnit.h"
 #include "../Ability/Ability.h"
 #include "../Misc/FUnitSpawnDataRow.h"
 
@@ -18,14 +18,8 @@ AUnitBase::AUnitBase()
 		nullptr,
 		TEXT("/Game/Assets/Decal/UnitTarget_Mat")
 	);
-	AutoPossessAI = EAutoPossessAI::PlacedInWorldOrSpawned;
-}
-
-void AUnitBase::PreInitializeComponents()
-{
-	Super::PreInitializeComponents();
-	if (AIControllerClass)
-		AIControllerClass = AAIBase::StaticClass();
+	AutoPossessAI = EAutoPossessAI::Spawned;
+	AIControllerClass = AAIUnit::StaticClass();
 }
 
 void AUnitBase::BeginPlay()
@@ -98,10 +92,10 @@ void AUnitBase::SetDecalColor(FLinearColor Color)
 
 void AUnitBase::SetPlayerController()
 {
-	PlayerController = Cast<AControllerBase>(GetWorld()->GetFirstPlayerController());
+	PlayerController = Cast<APlayerControls>(GetWorld()->GetFirstPlayerController());
 }
 
-void AUnitBase::SetAIController(AAIBase* NewAIController)
+void AUnitBase::SetAIController(AAIUnit* NewAIController)
 {
 	AIController = NewAIController;
 }
@@ -128,7 +122,6 @@ void AUnitBase::InitFromSpawnData()
 		AIController->RunBehaviorTree(BehaviorTree);
 	GrantedAbilities = Row->DefaultAbilities;
 	Stats = Row->Stats;
-	//UE_LOG(LogTemp, Warning, TEXT("Copied stat count: %d"), Stats.Num());
 }
 
 bool AUnitBase::GetStat(EStat Stat, int& OutValue) const

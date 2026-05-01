@@ -1,53 +1,56 @@
 ﻿// Engine classes
-#include "AIBase.h"
+#include "AIUnit.h"
 #include "Navigation/CrowdFollowingComponent.h"
 #include "BehaviorTree/BehaviorTree.h"
 #include "BehaviorTree/BlackboardComponent.h"
-#include "../Actors/UnitBase.h"
+#include "../Unit/UnitBase.h"
 
-AAIBase::AAIBase()
+AAIUnit::AAIUnit()
 {
 	PrimaryActorTick.bCanEverTick = true;
 }
 
-void AAIBase::OnPossess(APawn* InPawn)
+void AAIUnit::OnPossess(APawn* InPawn)
 {
 	Super::OnPossess(InPawn);
 	if (AUnitBase* Unit = Cast<AUnitBase>(InPawn))
+	{
 		Unit->SetAIController(this);
+		Unit->InitFromSpawnData();
+	}
 }
 
-void AAIBase::Tick(float DeltaTime)
+void AAIUnit::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 }
 
-void AAIBase::SetDestination(FVector Location)
+void AAIUnit::SetDestination(FVector Location)
 {
 	GetBlackboardComponent()->SetValueAsVector(BB_Destination, Location);
 }
 
-void AAIBase::SetTarget(AUnitBase* Target)
+void AAIUnit::SetTarget(AUnitBase* Target)
 {
 	GetBlackboardComponent()->SetValueAsObject(BB_Target, Target);
 }
 
-AUnitBase* AAIBase::GetTarget()
+AUnitBase* AAIUnit::GetTarget()
 {
 	return Cast<AUnitBase>(GetBlackboardComponent()->GetValueAsObject(BB_Target));;
 }
 
-void AAIBase::ClearTarget()
+void AAIUnit::ClearTarget()
 {
 	GetBlackboardComponent()->SetValueAsObject(BB_Target, nullptr);
 }
 
-void AAIBase::SetInRange(bool bInRange)
+void AAIUnit::SetInRange(bool bInRange)
 {
 	GetBlackboardComponent()->SetValueAsBool(BB_bInRange, bInRange);
 }
 
-void AAIBase::SetAction(EAction Action)
+void AAIUnit::SetAction(EAction Action)
 {
 	GetBlackboardComponent()->SetValueAsEnum(BB_Action, static_cast<int>(Action));
 }

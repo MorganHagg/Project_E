@@ -4,18 +4,18 @@
 #include "GameFramework/PlayerController.h"
 #include "EnhancedInputSubsystems.h"
 // Generated
-#include "ControllerBase.generated.h"
+#include "PlayerControls.generated.h"
 
 class AUnitBase;
 class AMainHUD;
 
 UCLASS()
-class PROJECT_E_API AControllerBase : public APlayerController
+class PROJECT_E_API APlayerControls : public APlayerController
 {
 	GENERATED_BODY()
 
 public:
-	AControllerBase();
+	APlayerControls();
 
 protected:
 	virtual void BeginPlay() override;

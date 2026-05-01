@@ -5,17 +5,17 @@
 // Custom classes
 #include "../Misc/Action.h"
 // Generated
-#include "AIBase.generated.h"
+#include "AIUnit.generated.h"
 
 class AUnitBase;
 
 UCLASS()
-class PROJECT_E_API AAIBase : public AAIController
+class PROJECT_E_API AAIUnit : public AAIController
 {
 	GENERATED_BODY()
 
 public:
-	AAIBase();
+	AAIUnit();
 protected:
 	virtual void OnPossess(APawn* InPawn) override;
 public:

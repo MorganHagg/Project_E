@@ -1,7 +1,7 @@
 ﻿#pragma once
 // Engine classes
 #include "CoreMinimal.h"
-#include "../Actors/UnitBase.h"
+#include "../Unit/UnitBase.h"
 // Generated
 #include "UnitManager.generated.h"
 

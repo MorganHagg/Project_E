@@ -1,5 +1,5 @@
 ﻿#include "Ability.h"
-#include "../Actors/UnitBase.h"
+#include "../Unit/UnitBase.h"
 #include "Projectile.h"
 #include "SAdvancedTransformInputBox.h"
 
@@ -16,7 +16,7 @@ void UAbility::Initiate(AUnitBase* Owner)
 	Activate(MyOwner, MyOwner->AIController);
 }
 
-void UAbility::Activate_Implementation(AUnitBase* Owner, AAIBase* AIController)
+void UAbility::Activate_Implementation(AUnitBase* Owner, AAIUnit* AIController)
 {
 	UE_LOG(LogTemp, Error, TEXT("%s has no Activate implementation"), *GetName());
 }

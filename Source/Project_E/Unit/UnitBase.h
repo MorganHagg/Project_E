@@ -10,7 +10,7 @@
 #include "UnitBase.generated.h"
 
 class UBehaviorTree;
-class AAIBase;
+class AAIUnit;
 class UAbility;
 
 // Enum
@@ -29,7 +29,7 @@ enum class EUnitArchetype : uint8
 	Ranger
 };
 
-class AControllerBase;
+class APlayerControls;
 
 UCLASS()
 class PROJECT_E_API AUnitBase : public ACharacter, public IDamageable
@@ -38,7 +38,6 @@ class PROJECT_E_API AUnitBase : public ACharacter, public IDamageable
 
 public:
 	AUnitBase();
-	virtual void PreInitializeComponents() override;
 
 protected:
 	virtual void BeginPlay() override;
@@ -78,11 +77,11 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI")
 	EUnitFaction UnitFaction = EUnitFaction::Controlled;
 
-	AControllerBase* PlayerController = nullptr;
-	AAIBase* AIController = nullptr;
+	APlayerControls* PlayerController = nullptr;
+	AAIUnit* AIController = nullptr;
 	
 	void SetPlayerController();
-	void SetAIController(AAIBase* NewAIController);
+	void SetAIController(AAIUnit* NewAIController);
 	void InitFromSpawnData ();
 	UPROPERTY(BlueprintReadWrite)
 	TMap<EStat, int> Stats;
