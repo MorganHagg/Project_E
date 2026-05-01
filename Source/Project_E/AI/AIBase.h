@@ -7,7 +7,6 @@
 // Generated
 #include "AIBase.generated.h"
 
-
 class AUnitBase;
 
 UCLASS()
@@ -30,7 +29,7 @@ public:
 	void SetAction(EAction Action);
 
 	EAction CurrentAction = EAction::Walking;
-	
+
 	// Blackboard names
 	const FName BB_Destination = TEXT("Destination");
 	const FName BB_Target = TEXT("Target");

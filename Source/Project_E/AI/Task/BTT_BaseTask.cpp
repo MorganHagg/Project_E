@@ -2,6 +2,7 @@
 #include "BTT_BaseTask.h"
 #include "AIController.h"
 #include "Project_E/Actors/UnitBase.h"
+#include "Project_E/Misc/Action.h"
 
 EBTNodeResult::Type UBTT_BaseTask::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory)
 {
@@ -24,3 +25,25 @@ AUnitBase* UBTT_BaseTask::GetMyUnit()
 		return Cast<AUnitBase>(AIC->GetPawn());
 	return nullptr;
 }
+
+FVector UBTT_BaseTask::Blackboard_GetDestination()
+{
+	return FVector::ZeroVector;
+}
+
+AUnitBase* UBTT_BaseTask::Blackboard_GetTarget()
+{
+	
+	return nullptr;
+}
+
+bool UBTT_BaseTask::Blackboard_GetInRange()
+{
+	return true;
+}
+
+EAction UBTT_BaseTask::Blackboard_GetAction()
+{
+	return EAction::Attacking;
+}
+

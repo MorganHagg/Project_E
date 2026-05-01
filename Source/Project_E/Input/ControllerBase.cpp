@@ -118,7 +118,6 @@ void AControllerBase::CommandReleased()
 
 }
 
-
 void AControllerBase::AddToSquad(class AUnitBase* Unit)
 {
 	Squad.Add(Unit, false);

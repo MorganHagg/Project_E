@@ -3,10 +3,10 @@
 #include "CoreMinimal.h"
 #include "Engine/DataTable.h"
 #include "Stat.h"
-#include "FUnitDataRow.generated.h"
+#include "FUnitSpawnDataRow.generated.h"
 
 USTRUCT(BlueprintType)
-struct FFUnitDataRow : public FTableRowBase
+struct FFUnitSpawnDataRow : public FTableRowBase
 {
 	GENERATED_BODY()
 

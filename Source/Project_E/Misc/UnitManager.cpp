@@ -10,7 +10,7 @@ AUnitBase* UUnitManager::SpawnUnit(EUnitArchetype Archetype, FVector Location, E
 
 	NewUnit->SetArchetype(Archetype);
 	NewUnit->SetFaction(Faction);
-	NewUnit->InitFromData();
+	NewUnit->InitFromSpawnData();
 	return NewUnit;
 }
 

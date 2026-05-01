@@ -24,6 +24,18 @@ public:
     UFUNCTION(BlueprintCallable)
     AUnitBase* GetMyUnit();
 
+    UFUNCTION(BlueprintCallable)
+    FVector Blackboard_GetDestination();
+
+    UFUNCTION(BlueprintCallable)
+    AUnitBase* Blackboard_GetTarget();
+
+    UFUNCTION(BlueprintCallable)
+    bool Blackboard_GetInRange();
+
+    UFUNCTION(BlueprintCallable)
+    EAction Blackboard_GetAction();
+
 private:
     UBehaviorTreeComponent* CachedOwnerComp = nullptr;
 };

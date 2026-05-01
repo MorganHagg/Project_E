@@ -83,7 +83,7 @@ public:
 	
 	void SetPlayerController();
 	void SetAIController(AAIBase* NewAIController);
-	void InitFromData ();
+	void InitFromSpawnData ();
 	UPROPERTY(BlueprintReadWrite)
 	TMap<EStat, int> Stats;
 	bool GetStat(EStat Stat, int& OutValue) const;
@@ -91,7 +91,7 @@ public:
 	
 	UFUNCTION(BlueprintCallable)
 	void SetFaction(EUnitFaction NewFaction);
-
+	
 	void MoveTo(FVector Location);
 
 	void SetTarget(AUnitBase* Target);
@@ -124,6 +124,7 @@ public:
 	EUnitArchetype Archetype = EUnitArchetype::Warrior;
 
 	void SetArchetype(EUnitArchetype NewArchetype); 
+	void FixLocAndRot();
 	
 	// Interface functions
 	int GetCurrentHealth();

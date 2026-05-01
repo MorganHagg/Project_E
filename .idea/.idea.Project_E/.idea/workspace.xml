@@ -12,21 +12,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85a82e2a-183c-4528-aacd-187cd00cb16d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Source/Project_E/Misc/UnitManager.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/Project_E/Misc/UnitManager.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/Project_E/Actors/AICommander.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/Project_E/Actors/AICommander.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project_E/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project_E/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Framework/DataTable/DT_UnitStatTable.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Abilities/AutoAttack_Ranged.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Abilities/AutoAttack_Ranged.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/AI/BB_PlayerUnits.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/AI/BT_PlayerUnits.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/AI/Tasks/BTT_Attack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/AI/Tasks/BTT_Attack.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/DataTable/DT_UnitData.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Framework/Input/BP_ControllerBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/Input/BP_ControllerBase.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Levels/Test.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Test.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Units/Caster.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Units/Ranger.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Units/Warrior.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Units/Warrior.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/AI/AIBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/AI/AIBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/AI/AIBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/AI/AIBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/AI/Task/BTT_BaseTask.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/AI/Task/BTT_BaseTask.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/AI/Task/BTT_BaseTask.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/AI/Task/BTT_BaseTask.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/Actors/UnitBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Actors/UnitBase.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/Actors/UnitBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Actors/UnitBase.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/Input/ControllerBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Input/ControllerBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Project_E/Input/ControllerBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Input/ControllerBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Project_E/Misc/StatStruct.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Misc/FUnitDataRow.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Misc/FUnitDataRow.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Misc/FUnitSpawnDataRow.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Misc/UnitManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Misc/UnitManager.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +246,8 @@
       <workItem from="1777470877451" duration="1570000" />
       <workItem from="1777472624934" duration="2801000" />
       <workItem from="1777533746245" duration="402000" />
-      <workItem from="1777534203515" duration="11608000" />
+      <workItem from="1777534203515" duration="15440000" />
+      <workItem from="1777629400233" duration="3237000" />
     </task>
     <servers />
   </component>

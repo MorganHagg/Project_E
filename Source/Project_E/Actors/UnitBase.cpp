@@ -8,7 +8,7 @@
 #include "../Input/ControllerBase.h"
 #include "../AI/AIBase.h"
 #include "../Ability/Ability.h"
-#include "../Misc/FUnitDataRow.h"
+#include "../Misc/FUnitSpawnDataRow.h"
 
 AUnitBase::AUnitBase()
 {
@@ -106,15 +106,15 @@ void AUnitBase::SetAIController(AAIBase* NewAIController)
 	AIController = NewAIController;
 }
 
-void AUnitBase::InitFromData()
+void AUnitBase::InitFromSpawnData()
 {
 	UDataTable* StatTable = LoadObject<UDataTable>(nullptr,
-		TEXT("/Game/Framework/DataTable/DT_UnitData.DT_UnitData"));
+		TEXT("/Game/Framework/DataTable/DT_UnitSpawnData.DT_UnitSpawnData"));
 	if (!StatTable) return;
 
 	
 	FName RowName = FName(*StaticEnum<EUnitArchetype>()->GetNameStringByValue((int64)Archetype));
-	FFUnitDataRow* Row = StatTable->FindRow<FFUnitDataRow>(RowName, TEXT("InitData"));
+	FFUnitSpawnDataRow* Row = StatTable->FindRow<FFUnitSpawnDataRow>(RowName, TEXT("InitData"));
 	if (!Row)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("No stat row found for %s"), *GetClass()->GetDisplayNameText().ToString());
@@ -122,6 +122,7 @@ void AUnitBase::InitFromData()
 	}
 	
 	GetMesh()->SetSkeletalMesh(Row->Mesh);
+	FixLocAndRot();
 	BehaviorTree = Row->BehaviorTree;
 	if (AIController && BehaviorTree)
 		AIController->RunBehaviorTree(BehaviorTree);
@@ -235,6 +236,17 @@ void AUnitBase::ActivateAbility(int AbilityIndex)
 void AUnitBase::SetArchetype(EUnitArchetype NewArchetype)
 {
 	Archetype = NewArchetype;
+}
+
+void AUnitBase::FixLocAndRot()
+{
+	GetMesh()->SetRelativeLocationAndRotation(
+	FVector(											// offset down to feet
+		0.f,
+		0.f,
+		-GetCapsuleComponent()->GetScaledCapsuleHalfHeight()),
+	FRotator(0.f, -90.f, 0.f)			// rotate to face forward
+	);
 }
 
 int AUnitBase::GetCurrentHealth()
