@@ -9,6 +9,7 @@
 
 class UBehaviorTree;
 class AAIControls;
+class AUnitBase;
 
 UCLASS()
 class PROJECT_E_API AAICommander : public APawn
@@ -27,4 +28,7 @@ public:
 	void SetAIController(AAIController* NewAIController);
 	
 	AAIControls* AIController;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<AUnitBase*> MySquad;
 };

@@ -90,9 +90,11 @@ public:
 	
 	UFUNCTION(BlueprintCallable)
 	void SetFaction(EUnitFaction NewFaction);
-	
-	void MoveTo(FVector Location);
 
+	UFUNCTION(BlueprintCallable)
+	void MoveTo(FVector Location);
+	
+	UFUNCTION(BlueprintCallable)
 	void SetTarget(AUnitBase* Target);
 	
 	UFUNCTION(BlueprintCallable)

@@ -3,6 +3,7 @@
 // Custom classes
 #include "../Misc/UnitManager.h"
 #include "../Input/AIControls.h"
+#include "../Unit/UnitBase.h"
 
 AAICommander::AAICommander()
 {
@@ -16,7 +17,7 @@ void AAICommander::BeginPlay()
 	Super::BeginPlay();
 	
 	UUnitManager* UnitManager = GetGameInstance()->GetSubsystem<UUnitManager>();
-	UnitManager->SpawnUnit(EUnitArchetype::Warrior, GetActorLocation(), EUnitFaction::Hostile);
+	MySquad.Add(UnitManager->SpawnUnit(EUnitArchetype::Warrior, GetActorLocation(), EUnitFaction::Hostile));
 }
 
 void AAICommander::Tick(float DeltaTime)
