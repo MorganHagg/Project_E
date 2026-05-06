@@ -1,7 +1,11 @@
-﻿#include "Ability.h"
-#include "../Unit/UnitBase.h"
+﻿// Engine classes
+#include "Ability.h"
 #include "Projectile.h"
 #include "SAdvancedTransformInputBox.h"
+#include "Engine/OverlapResult.h"
+// Custom classes
+#include "GenericTeamAgentInterface.h"
+#include "../Unit/UnitBase.h"
 
 UAbility::UAbility()
 {
@@ -56,7 +60,7 @@ void UAbility::RunEffect_Projectile(FLatentActionInfo LatentInfo, UStaticMesh* M
 }
 
 
-void UAbility::RunEffect_Damage(AUnitBase* Target, int RawDamage, EDamageType DamageType)
+void UAbility::RunEffect_Damage(AUnitBase* Target, int RawDamage, EAbilityType DamageType)
 {
 	Target->ReceiveDamage(RawDamage, DamageType);
 }
@@ -66,9 +70,29 @@ void UAbility::RunEffect_Heal(AUnitBase* Target, int RawHealing)
 	Target->ReceiveHeal(RawHealing);
 }
 
-void UAbility::RunEffect_AOE()
+TArray<AUnitBase*> UAbility::RunEffect_AOE(FVector Location, float Radius, ETargetSelection TargetSelection)
 {
-	
+	TArray<AUnitBase*> Targets;
+	TArray<FOverlapResult> Overlaps;
+
+	FCollisionShape Sphere = FCollisionShape::MakeSphere(Radius);
+	FCollisionQueryParams Params;
+
+	if (World->OverlapMultiByChannel(Overlaps, Location, FQuat::Identity, ECC_Pawn, Sphere, Params))
+		for (FOverlapResult& Overlap : Overlaps)
+		{
+			AUnitBase* Unit = Cast<AUnitBase>(Overlap.GetActor());
+			if (!Unit) continue;
+
+			if (TargetSelection == ETargetSelection::All ||
+			   (TargetSelection == ETargetSelection::Friendly && Unit->UnitFaction == EUnitFaction::Controlled) ||
+			   (TargetSelection == ETargetSelection::Hostile && Unit->UnitFaction == EUnitFaction::Hostile))
+			{
+				Targets.AddUnique(Unit);
+			}
+		}
+
+	return Targets;
 }
 
 void UAbility::RunEffect_ApplyStasis()

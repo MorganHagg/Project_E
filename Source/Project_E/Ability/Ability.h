@@ -4,7 +4,7 @@
 #include "UObject/Object.h"
 #include "Engine/LatentActionManager.h"
 // Custom classes
-#include "../Misc/DamageSchool.h"
+#include "../Misc/AbilityType.h"
 // Generated classes
 #include "Ability.generated.h"
 
@@ -12,6 +12,15 @@
 class AProjectile;
 class AUnitBase;
 class UActionManager;
+
+// Enum
+UENUM(BlueprintType)
+enum class ETargetSelection : uint8
+{
+	Friendly,
+	Hostile,
+	All
+};
 
 // Effects
 class FEffect_ProjectileAction : public FPendingLatentAction
@@ -62,13 +71,13 @@ public:
 	void RunEffect_Projectile(FLatentActionInfo LatentInfo, UStaticMesh* Mesh, FVector Target, float Speed);
 	
 	UFUNCTION(BlueprintCallable, Category="Ability")
-	void RunEffect_Damage(AUnitBase* Target, int RawDamage, EDamageType DamageType);
+	void RunEffect_Damage(AUnitBase* Target, int RawDamage, EAbilityType DamageType);
 
 	UFUNCTION(BlueprintCallable, Category="Ability")
 	void RunEffect_Heal(AUnitBase* Target, int RawHealing);
 
 	UFUNCTION(BlueprintCallable, Category="Ability")
-	void RunEffect_AOE();
+	TArray<AUnitBase*> RunEffect_AOE(FVector Location, float Radius, ETargetSelection TargetSelection);
 
 	UFUNCTION(BlueprintCallable, Category="Ability")
 	void RunEffect_ApplyStasis();

@@ -1,8 +1,9 @@
 ﻿#pragma once
 
 UENUM(BlueprintType)
-enum class EDamageType : uint8
+enum class EAbilityType : uint8
 {
 	Physical,
-	Magical
+	Magical,
+	Healing
 };

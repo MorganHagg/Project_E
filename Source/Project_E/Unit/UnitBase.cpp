@@ -258,10 +258,10 @@ float AUnitBase::GetMaxHealth()
 	return MaxHealth;
 }
 
-void AUnitBase::ReceiveDamage(float RawDamage, EDamageType DamageType)
+void AUnitBase::ReceiveDamage(float RawDamage, EAbilityType DamageType)
 {
 	float Damage = FMath::RoundToInt(
-		RawDamage * MitigationFactor(DamageType) * AbilityFactor()	);
+		RawDamage * MitigationFactor(DamageType) * AbilityFactor(DamageType)	);
 	UE_LOG(LogTemp, Warning, TEXT("Damage: %f"), Damage);
 	ChangeHealth(-Damage);
 }
@@ -269,7 +269,7 @@ void AUnitBase::ReceiveDamage(float RawDamage, EDamageType DamageType)
 void AUnitBase::ReceiveHeal(float RawHealing)
 {
 	float Healing = FMath::RoundToInt(
-		RawHealing * AbilityFactor()	);
+		RawHealing * AbilityFactor(EAbilityType::Healing)	);
 	ChangeHealth(Healing);
 }
 
@@ -285,7 +285,7 @@ void AUnitBase::ChangeHealth(float ChangeInHealth)
 		Die();
 }
 
-float AUnitBase::MitigationFactor(EDamageType DamageType)
+float AUnitBase::MitigationFactor(EAbilityType DamageType)
 {
 	float MaxArmour = 75;		//TODO: Put this somewhere it makes sense
 	float MaxMagicResist = 75;	//TODO: Put this somewhere it makes sense
@@ -299,11 +299,11 @@ float AUnitBase::MitigationFactor(EDamageType DamageType)
 	{
 	default:
 		return 1.f; // no mitigation for unhandled damage types
-	case EDamageType::Physical:
+	case EAbilityType::Physical:
 		GetStat(EStat::Armour, Mitigation);
 		MaxValue = MaxArmour;
 		break;
-	case EDamageType::Magical:
+	case EAbilityType::Magical:
 		GetStat(EStat::MagicResist, Mitigation);
 		MaxValue = MaxMagicResist;
 		break;
@@ -314,7 +314,7 @@ float AUnitBase::MitigationFactor(EDamageType DamageType)
 	return Reduction;;
 }
 
-float AUnitBase::AbilityFactor()
+float AUnitBase::AbilityFactor(EAbilityType AbilityType)
 {
 	/*	Run through an array of effects and check if they are affecting damage received
 	 *

@@ -5,7 +5,7 @@
 #include "Kismet/GameplayStatics.h"
 // Custom classes
 #include "../Misc/Stat.h"
-#include "../Misc/DamageSchool.h"
+#include "../Misc/AbilityType.h"
 #include "../Interface/Damageable.h"
 // Generated
 #include "UnitBase.generated.h"
@@ -131,12 +131,12 @@ public:
 	// Interface functions
 	float GetCurrentHealth();
 	float GetMaxHealth();
-	void ReceiveDamage(float RawDamage, EDamageType DamageType);
+	void ReceiveDamage(float RawDamage, EAbilityType DamageType);
 	void ReceiveHeal(float RawHealing);
 	void ChangeHealth(float ChangeInHealth);
 
-	float MitigationFactor(EDamageType DamageType);
-	float AbilityFactor();
+	float MitigationFactor(EAbilityType DamageType);
+	float AbilityFactor(EAbilityType AbilityType);
 
 	void Die();
 };

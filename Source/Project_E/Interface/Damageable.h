@@ -2,7 +2,7 @@
 // Engine classes
 #include "CoreMinimal.h"
 // Custom classes
-#include "../Misc/DamageSchool.h"
+#include "../Misc/AbilityType.h"
 // Generated
 #include "Damageable.generated.h"
 
@@ -19,7 +19,7 @@ class PROJECT_E_API IDamageable
 	virtual float GetCurrentHealth() = 0;
 	virtual float GetMaxHealth() = 0;
 
-	virtual void ReceiveDamage(float RawDamage, EDamageType DamageType) = 0;
+	virtual void ReceiveDamage(float RawDamage, EAbilityType DamageType) = 0;
 	virtual void ReceiveHeal(float RawHealing) = 0;
 public:
 };
