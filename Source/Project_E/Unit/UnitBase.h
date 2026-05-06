@@ -12,16 +12,10 @@
 
 class UBehaviorTree;
 class AAIUnit;
+class UUnitHandler;
 class UAbility;
 
 // Enum
-UENUM(BlueprintType)
-enum class EUnitFaction : uint8
-{
-	Controlled,
-	Hostile
-};
-
 UENUM(BlueprintType)
 enum class EUnitArchetype : uint8
 {
@@ -29,8 +23,6 @@ enum class EUnitArchetype : uint8
 	Mage,
 	Ranger
 };
-
-class APlayerControls;
 
 UCLASS()
 class PROJECT_E_API AUnitBase : public ACharacter, public IDamageable
@@ -47,9 +39,6 @@ protected:
 	
 public:
 	virtual void Tick(float DeltaTime) override;
-
-	UFUNCTION(BlueprintCallable, Category = "Squad")
-	void ToggleSelect();
 	
 	UFUNCTION(BlueprintCallable, Category = "Decals")
 	void DrawDecal();
@@ -74,23 +63,17 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Decals")
 	float DecalThickness = 128.f;
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI")
-	EUnitFaction UnitFaction = EUnitFaction::Controlled;
 
-	APlayerControls* PlayerController = nullptr;
+	UUnitHandler* MyHandler;
 	AAIUnit* AIController = nullptr;
 	
-	void SetPlayerController();
+	void SetHandler(UUnitHandler* NewHandler);
 	void SetAIController(AAIUnit* NewAIController);
 	void InitFromSpawnData ();
 	UPROPERTY(BlueprintReadWrite)
 	TMap<EStat, float> Stats;
 	bool GetStat(EStat Stat, float& OutValue) const;
 	void ChangeStat(EStat Stat, float NewStatValue);
-	
-	UFUNCTION(BlueprintCallable)
-	void SetFaction(EUnitFaction NewFaction);
 
 	UFUNCTION(BlueprintCallable)
 	void MoveTo(FVector Location);

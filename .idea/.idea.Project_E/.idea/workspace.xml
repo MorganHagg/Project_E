@@ -12,11 +12,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85a82e2a-183c-4528-aacd-187cd00cb16d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Source/Project_E/Component/UnitHandler.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/Project_E/Component/UnitHandler.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project_E/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project_E/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Abilities/AutoAttack_Melee.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Abilities/AutoAttack_Melee.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/AI/AICommander/TEST.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/AI/AICommander/TEST.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/AI/BT_Units.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/AI/BT_Units.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/Input/BP_ControllerBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/Input/BP_ControllerBase.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Levels/Test.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Test.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/Ability/Ability.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Ability/Ability.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Project_E/Ability/Ability.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Ability/Ability.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Project_E/Interface/Damageable.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Interface/Damageable.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Project_E/Misc/DamageSchool.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Misc/AbilityType.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Actors/AICommander.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Actors/AICommander.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Actors/AICommander.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Actors/AICommander.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Input/AIControls.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Input/AIControls.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Input/AIControls.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Input/AIControls.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Input/PlayerControls.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Input/PlayerControls.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Input/PlayerControls.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Input/PlayerControls.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Misc/UnitManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Misc/UnitManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Misc/UnitManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Misc/UnitManager.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/Unit/UnitBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Unit/UnitBase.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/Unit/UnitBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Unit/UnitBase.h" afterDir="false" />
     </list>
@@ -230,7 +242,7 @@
       <workItem from="1777534203515" duration="15440000" />
       <workItem from="1777629400233" duration="4574000" />
       <workItem from="1777634617931" duration="4315000" />
-      <workItem from="1778056576075" duration="11719000" />
+      <workItem from="1778056576075" duration="18220000" />
     </task>
     <servers />
   </component>

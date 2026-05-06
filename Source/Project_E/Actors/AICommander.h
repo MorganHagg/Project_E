@@ -25,6 +25,4 @@ protected:
 public:
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<AUnitBase*> MySquad;
 };

@@ -7,6 +7,7 @@
 #include "PlayerControls.generated.h"
 
 class AUnitBase;
+class UUnitHandler;
 class AMainHUD;
 
 UCLASS()
@@ -52,17 +53,12 @@ public:
 	bool bShiftHeld = false;
 	void ShiftPressed()   { bShiftHeld = true; };
 	void ShiftReleased()   { bShiftHeld = false; };
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TMap<AUnitBase*, bool> Squad;
-
-	
-	void AddToSquad(class AUnitBase* Unit);
-	void RemoveFromSquad(class AUnitBase* Unit);
 	
 	void ClearSelectedUnits();
 	void UpdateSelectedUnits();
 
 	AMainHUD* HUD;
 
+	UPROPERTY(BlueprintReadOnly)
+	UUnitHandler* UnitHandler;
 };

@@ -1,16 +1,18 @@
 ﻿// Engine classes
 #include "PlayerControls.h"
-#include "../Unit/UnitBase.h"
 #include "EnhancedInputComponent.h"
 // Custom classes
 #include "../HUD/MainHUD.h"
-#include "Project_E/AI/AIUnit.h"
+#include "../AI/AIUnit.h"
+#include "../Unit/UnitBase.h"
+#include "../Component/UnitHandler.h"
 
 APlayerControls::APlayerControls()
 {
 	PrimaryActorTick.bCanEverTick = true;
 	bEnableClickEvents = true;
 	bEnableMouseOverEvents = true;
+	UnitHandler = CreateDefaultSubobject<UUnitHandler>(TEXT("UnitHandler"));
 }
 
 
@@ -69,8 +71,8 @@ void APlayerControls::SelectReleased()
 		
 	for (AUnitBase* Unit : SelectedUnits)
 	{
-		if (Squad.Contains(Unit))
-			Unit->ToggleSelect();
+		if (bool* bSelected = UnitHandler->Squad.Find(Unit))
+			*bSelected = true;
 	}
 	UpdateSelectedUnits();
 }
@@ -83,13 +85,13 @@ void APlayerControls::CommandPressed()
 
 	if (AUnitBase* Target = Cast<AUnitBase>(Hit.GetActor()))
 	{
-		switch (Target->UnitFaction)
+		if (UnitHandler->IsInSquad(Target))
 		{
-		case EUnitFaction::Controlled:
 			UE_LOG(LogTemp, Warning, TEXT("Friendly target"))
-			break;	// Do nothing
-		case EUnitFaction::Hostile:
-			for (auto& Pair : Squad)
+		}
+		else
+		{
+			for (auto& Pair : UnitHandler->Squad)
 			{
 				if (Pair.Value == true)
 				{
@@ -97,12 +99,11 @@ void APlayerControls::CommandPressed()
 					Pair.Key->AIController->SetAction(EAction::Attacking);
 				}
 			}
-			break;
 		}
 	}
 	else
 	{
-		for (auto& Pair : Squad)
+		for (auto& Pair : UnitHandler->Squad)
 		{
 			if (Pair.Value == true)
 			{
@@ -118,20 +119,9 @@ void APlayerControls::CommandReleased()
 
 }
 
-void APlayerControls::AddToSquad(class AUnitBase* Unit)
-{
-	Squad.Add(Unit, false);
-}
-
-void APlayerControls::RemoveFromSquad(class AUnitBase* Unit)
-{
-	Squad.Remove(Unit);
-}
-
-
 void APlayerControls::ClearSelectedUnits()
 {
-	for (auto& Pair : Squad)
+	for (auto& Pair : UnitHandler->Squad)
 	{
 		Pair.Value = false;
 	}
@@ -139,7 +129,7 @@ void APlayerControls::ClearSelectedUnits()
 
 void APlayerControls::UpdateSelectedUnits()
 {
-	for (auto& Pair : Squad)
+	for (auto& Pair : UnitHandler->Squad)
 	{
 		if (Pair.Value == true)
 			Pair.Key->DrawDecal();

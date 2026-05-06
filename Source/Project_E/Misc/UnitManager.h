@@ -1,9 +1,12 @@
 ﻿#pragma once
 // Engine classes
 #include "CoreMinimal.h"
-#include "../Unit/UnitBase.h"
 // Generated
 #include "UnitManager.generated.h"
+
+class AController;
+class UUnitHandler;
+class UAbility;
 
 USTRUCT()
 struct FUnitSaveData
@@ -11,7 +14,6 @@ struct FUnitSaveData
 	GENERATED_BODY()
 
 	EUnitArchetype Archetype;
-	TMap<EStat, int32> Stats;
 	TArray<TSubclassOf<UAbility>> Abilities;
 	// gear etc
 };
@@ -23,7 +25,7 @@ class PROJECT_E_API UUnitManager : public UGameInstanceSubsystem
 public:
 
 	UFUNCTION(BlueprintCallable)
-	AUnitBase* SpawnUnit(EUnitArchetype Archetype, FVector Location, EUnitFaction Faction);
+	AUnitBase* SpawnUnit(EUnitArchetype Archetype, FVector Location, AController* Controller);
 	
 	void WritePersistenSquad();
 

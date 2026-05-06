@@ -10,6 +10,7 @@
 #include "../AI/AIUnit.h"
 #include "../Ability/Ability.h"
 #include "../Misc/FUnitSpawnDataRow.h"
+#include "../Component/UnitHandler.h"
 
 AUnitBase::AUnitBase()
 {
@@ -27,7 +28,7 @@ void AUnitBase::BeginPlay()
 {
 	Super::BeginPlay();
 	CreateDecal();
-	SetPlayerController();
+	//SetPlayerController();
 }
 
 void AUnitBase::CreateDecal()
@@ -63,16 +64,6 @@ void AUnitBase::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-void AUnitBase::ToggleSelect()
-{
-	if (!PlayerController) return;
-
-	if (bool* bSelected = PlayerController->Squad.Find(this))
-	{
-		*bSelected = !(*bSelected);
-	}
-}
-
 void AUnitBase::DrawDecal()
 {
 	if (DecalComponent)
@@ -91,9 +82,9 @@ void AUnitBase::SetDecalColor(FLinearColor Color)
 	DecalMatInstance->SetVectorParameterValue(TEXT("TintColor"), Color);
 }
 
-void AUnitBase::SetPlayerController()
+void AUnitBase::SetHandler(UUnitHandler* NewHandler)
 {
-	PlayerController = Cast<APlayerControls>(GetWorld()->GetFirstPlayerController());
+	MyHandler = NewHandler;
 }
 
 void AUnitBase::SetAIController(AAIUnit* NewAIController)
@@ -146,20 +137,6 @@ void AUnitBase::ChangeStat(EStat Stat, float NewStatValue)
 			*GetName());
 }
 
-void AUnitBase::SetFaction(EUnitFaction NewFaction)
-{
-	UnitFaction = NewFaction;
-	switch (NewFaction)
-	{
-	case EUnitFaction::Controlled:
-		PlayerController->AddToSquad(this);
-		break;
-	case EUnitFaction::Hostile:
-		if (PlayerController->Squad.Contains(this))
-			PlayerController->RemoveFromSquad(this);	
-		break;
-	}
-}
 void AUnitBase::MoveTo(FVector Location)
 {
 	if (AIController)

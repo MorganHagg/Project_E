@@ -4,7 +4,7 @@
 #include "SAdvancedTransformInputBox.h"
 #include "Engine/OverlapResult.h"
 // Custom classes
-#include "GenericTeamAgentInterface.h"
+#include "../Component/UnitHandler.h"
 #include "../Unit/UnitBase.h"
 
 UAbility::UAbility()
@@ -77,21 +77,20 @@ TArray<AUnitBase*> UAbility::RunEffect_AOE(FVector Location, float Radius, ETarg
 
 	FCollisionShape Sphere = FCollisionShape::MakeSphere(Radius);
 	FCollisionQueryParams Params;
-
-	if (World->OverlapMultiByChannel(Overlaps, Location, FQuat::Identity, ECC_Pawn, Sphere, Params))
+	
+	if (World->OverlapMultiByChannel(Overlaps, Location, FQuat::Identity, ECC_Pawn, Sphere, Params) && MyOwner->MyHandler)
 		for (FOverlapResult& Overlap : Overlaps)
 		{
 			AUnitBase* Unit = Cast<AUnitBase>(Overlap.GetActor());
 			if (!Unit) continue;
 
 			if (TargetSelection == ETargetSelection::All ||
-			   (TargetSelection == ETargetSelection::Friendly && Unit->UnitFaction == EUnitFaction::Controlled) ||
-			   (TargetSelection == ETargetSelection::Hostile && Unit->UnitFaction == EUnitFaction::Hostile))
+			   (TargetSelection == ETargetSelection::Friendly && MyOwner->MyHandler->IsInSquad(Unit)) ||
+			   (TargetSelection == ETargetSelection::Hostile && !MyOwner->MyHandler->IsInSquad(Unit)))
 			{
 				Targets.AddUnique(Unit);
 			}
 		}
-
 	return Targets;
 }
 

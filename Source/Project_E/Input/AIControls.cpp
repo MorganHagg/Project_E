@@ -1,17 +1,24 @@
 ﻿//Engine classes
 #include "AIControls.h"
 #include "BehaviorTree/BehaviorTree.h"
-#include "Project_E/Actors/AICommander.h"
+// Custom classes
+#include "../Misc/UnitManager.h"
+#include "../Unit/UnitBase.h"
+#include "../Component/UnitHandler.h"
 
 
 AAIControls::AAIControls()
 {
 	PrimaryActorTick.bCanEverTick = true;
+	UnitHandler = CreateDefaultSubobject<UUnitHandler>(TEXT("UnitHandler"));
 }
 
 void AAIControls::BeginPlay()
 {
 	Super::BeginPlay();
+	UUnitManager* UnitManager = GetGameInstance()->GetSubsystem<UUnitManager>();
+	FVector Location = GetPawn()->GetActorLocation();
+	UnitHandler->AddToSquad(UnitManager->SpawnUnit(EUnitArchetype::Warrior, Location, this));
 }
 
 void AAIControls::OnPossess(APawn* InPawn)
