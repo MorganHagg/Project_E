@@ -12,8 +12,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85a82e2a-183c-4528-aacd-187cd00cb16d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Project_E/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project_E/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/AI/AICommander/TEST.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/AI/AICommander/TEST.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/AI/BT_Units.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/AI/BT_Units.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/AI/Tasks/BTT_Attack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/AI/Tasks/BTT_Attack.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/AI/Tasks/BTT_GetInRange.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/Actors/AICommander.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Actors/AICommander.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/Actors/AICommander.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Actors/AICommander.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Input/AIControls.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Input/AIControls.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +230,8 @@
       <workItem from="1777533746245" duration="402000" />
       <workItem from="1777534203515" duration="15440000" />
       <workItem from="1777629400233" duration="4574000" />
-      <workItem from="1777634617931" duration="3446000" />
+      <workItem from="1777634617931" duration="4315000" />
+      <workItem from="1778056576075" duration="1240000" />
     </task>
     <servers />
   </component>

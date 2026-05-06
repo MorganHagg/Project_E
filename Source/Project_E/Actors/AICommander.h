@@ -25,10 +25,6 @@ protected:
 public:
 	virtual void Tick(float DeltaTime) override;
 
-	void SetAIController(AAIController* NewAIController);
-	
-	AAIControls* AIController;
-
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<AUnitBase*> MySquad;
 };

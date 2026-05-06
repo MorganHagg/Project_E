@@ -25,6 +25,3 @@ void AAICommander::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-void AAICommander::SetAIController(AAIController* NewAIController)
-{
-}

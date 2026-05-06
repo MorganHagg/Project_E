@@ -16,19 +16,12 @@ void AAIControls::BeginPlay()
 
 void AAIControls::OnPossess(APawn* InPawn)
 {
-	UE_LOG(LogTemp, Warning, TEXT("I possess"));
 	Super::OnPossess(InPawn);
-	if (AAICommander* AICommander = Cast<AAICommander>(InPawn))
-	{
-		AICommander->SetAIController(this);
-		BehaviorTree = LoadObject<UBehaviorTree>(nullptr,
+
+	BehaviorTree = LoadObject<UBehaviorTree>(nullptr,
 	TEXT("/Game/Framework/AI/AICommander/BT_AICommander.BT_AICommander"));
-		if (BehaviorTree)
-		{
+	if (BehaviorTree)
 			RunBehaviorTree(BehaviorTree);
-			UE_LOG(LogTemp, Warning, TEXT("AI commander"));
-		}
-	}
 }
 
 void AAIControls::Tick(float DeltaTime)
