@@ -3,6 +3,8 @@
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
 #include "Engine/LatentActionManager.h"
+// Custom classes
+#include "../Misc/DamageSchool.h"
 // Generated classes
 #include "Ability.generated.h"
 
@@ -60,10 +62,10 @@ public:
 	void RunEffect_Projectile(FLatentActionInfo LatentInfo, UStaticMesh* Mesh, FVector Target, float Speed);
 	
 	UFUNCTION(BlueprintCallable, Category="Ability")
-	void RunEffect_Damage();
+	void RunEffect_Damage(AUnitBase* Target, int RawDamage, EDamageType DamageType);
 
 	UFUNCTION(BlueprintCallable, Category="Ability")
-	void RunEffect_Heal();
+	void RunEffect_Heal(AUnitBase* Target, int RawHealing);
 
 	UFUNCTION(BlueprintCallable, Category="Ability")
 	void RunEffect_AOE();

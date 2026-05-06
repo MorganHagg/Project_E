@@ -5,6 +5,7 @@
 #include "Kismet/GameplayStatics.h"
 // Custom classes
 #include "../Misc/Stat.h"
+#include "../Misc/DamageSchool.h"
 #include "../Interface/Damageable.h"
 // Generated
 #include "UnitBase.generated.h"
@@ -84,9 +85,9 @@ public:
 	void SetAIController(AAIUnit* NewAIController);
 	void InitFromSpawnData ();
 	UPROPERTY(BlueprintReadWrite)
-	TMap<EStat, int> Stats;
-	bool GetStat(EStat Stat, int& OutValue) const;
-	void ChangeStat(EStat Stat, int NewStatValue);
+	TMap<EStat, float> Stats;
+	bool GetStat(EStat Stat, float& OutValue) const;
+	void ChangeStat(EStat Stat, float NewStatValue);
 	
 	UFUNCTION(BlueprintCallable)
 	void SetFaction(EUnitFaction NewFaction);
@@ -128,11 +129,14 @@ public:
 	void FixLocAndRot();
 	
 	// Interface functions
-	int GetCurrentHealth();
-	int GetMaxHealth();
-	void ReceiveDamage(int Damage);
-	void ReceiveHeal(int Healing);
-	void ChangeHealth(int ChangeInHealth);
+	float GetCurrentHealth();
+	float GetMaxHealth();
+	void ReceiveDamage(float RawDamage, EDamageType DamageType);
+	void ReceiveHeal(float RawHealing);
+	void ChangeHealth(float ChangeInHealth);
+
+	float MitigationFactor(EDamageType DamageType);
+	float AbilityFactor();
 
 	void Die();
 };

@@ -20,7 +20,7 @@ struct FFUnitSpawnDataRow : public FTableRowBase
 	TArray<TSubclassOf<UAbility>> DefaultAbilities;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TMap<EStat, int32> Stats = {
+	TMap<EStat, float> Stats = {
 		{ EStat::Health, 100 },
 		{ EStat::MaxHealth, 100 },
 		{ EStat::Armour, 100 },

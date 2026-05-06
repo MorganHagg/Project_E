@@ -12,14 +12,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85a82e2a-183c-4528-aacd-187cd00cb16d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Source/Project_E/Misc/DamageSchool.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project_E/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project_E/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Framework/AI/AICommander/TEST.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/AI/AICommander/TEST.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Framework/AI/BT_Units.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/AI/BT_Units.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Framework/AI/Tasks/BTT_Attack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/AI/Tasks/BTT_Attack.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Framework/AI/Tasks/BTT_GetInRange.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Project_E/Actors/AICommander.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Actors/AICommander.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Project_E/Actors/AICommander.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Actors/AICommander.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Project_E/Input/AIControls.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Input/AIControls.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/DataTable/DT_UnitSpawnData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/DataTable/DT_UnitSpawnData.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Levels/Test.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Test.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Ability/Ability.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Ability/Ability.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Ability/Ability.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Ability/Ability.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Interface/Damageable.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Interface/Damageable.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Misc/FUnitSpawnDataRow.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Misc/FUnitSpawnDataRow.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Unit/UnitBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Unit/UnitBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Unit/UnitBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Unit/UnitBase.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +235,7 @@
       <workItem from="1777534203515" duration="15440000" />
       <workItem from="1777629400233" duration="4574000" />
       <workItem from="1777634617931" duration="4315000" />
-      <workItem from="1778056576075" duration="1240000" />
+      <workItem from="1778056576075" duration="9488000" />
     </task>
     <servers />
   </component>

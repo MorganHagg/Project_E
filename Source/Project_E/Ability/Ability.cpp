@@ -56,12 +56,14 @@ void UAbility::RunEffect_Projectile(FLatentActionInfo LatentInfo, UStaticMesh* M
 }
 
 
-void UAbility::RunEffect_Damage()
+void UAbility::RunEffect_Damage(AUnitBase* Target, int RawDamage, EDamageType DamageType)
 {
+	Target->ReceiveDamage(RawDamage, DamageType);
 }
 
-void UAbility::RunEffect_Heal()
+void UAbility::RunEffect_Heal(AUnitBase* Target, int RawHealing)
 {
+	Target->ReceiveHeal(RawHealing);
 }
 
 void UAbility::RunEffect_AOE()

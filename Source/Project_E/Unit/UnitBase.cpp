@@ -5,6 +5,7 @@
 #include "Components/DecalComponent.h"
 #include "Materials/MaterialInstanceDynamic.h"
 // Custom classes
+#include "AudioMixerBlueprintLibrary.h"
 #include "../Input/PlayerControls.h"
 #include "../AI/AIUnit.h"
 #include "../Ability/Ability.h"
@@ -124,9 +125,9 @@ void AUnitBase::InitFromSpawnData()
 	Stats = Row->Stats;
 }
 
-bool AUnitBase::GetStat(EStat Stat, int& OutValue) const
+bool AUnitBase::GetStat(EStat Stat, float& OutValue) const
 {
-	if (const int* Value = Stats.Find(Stat))
+	if (const float* Value = Stats.Find(Stat))
 	{
 		OutValue = *Value;
 		return true;
@@ -135,9 +136,9 @@ bool AUnitBase::GetStat(EStat Stat, int& OutValue) const
 	return false;
 }
 
-void AUnitBase::ChangeStat(EStat Stat, int NewStatValue)
+void AUnitBase::ChangeStat(EStat Stat, float NewStatValue)
 {
-	if (int* Value = Stats.Find(Stat))
+	if (float* Value = Stats.Find(Stat))
 		*Value = NewStatValue;
 	else
 		UE_LOG(LogTemp, Warning, TEXT("%s was not found in %s."),
@@ -231,6 +232,7 @@ void AUnitBase::SetArchetype(EUnitArchetype NewArchetype)
 	Archetype = NewArchetype;
 }
 
+// Sets the Unit at the bottom of capsule component, and rotates it correctly
 void AUnitBase::FixLocAndRot()
 {
 	GetMesh()->SetRelativeLocationAndRotation(
@@ -242,41 +244,84 @@ void AUnitBase::FixLocAndRot()
 	);
 }
 
-int AUnitBase::GetCurrentHealth()
+float AUnitBase::GetCurrentHealth()
 {
-	int Health;
+	float Health;
 	GetStat(EStat::Health,Health);
 	return Health;
 }
 
-int AUnitBase::GetMaxHealth()
+float AUnitBase::GetMaxHealth()
 {
-	int MaxHealth;
+	float MaxHealth;
 	GetStat(EStat::MaxHealth,MaxHealth);
 	return MaxHealth;
 }
 
-void AUnitBase::ReceiveDamage(int Damage)
+void AUnitBase::ReceiveDamage(float RawDamage, EDamageType DamageType)
 {
+	float Damage = FMath::RoundToInt(
+		RawDamage * MitigationFactor(DamageType) * AbilityFactor()	);
+	UE_LOG(LogTemp, Warning, TEXT("Damage: %f"), Damage);
 	ChangeHealth(-Damage);
 }
 
-void AUnitBase::ReceiveHeal(int Healing)
+void AUnitBase::ReceiveHeal(float RawHealing)
 {
+	float Healing = FMath::RoundToInt(
+		RawHealing * AbilityFactor()	);
 	ChangeHealth(Healing);
 }
 
-void AUnitBase::ChangeHealth(int ChangeInHealth)
+void AUnitBase::ChangeHealth(float ChangeInHealth)
 {
-	int Health;
-	int MaxHealth;
+	float Health;
+	float MaxHealth;
 	GetStat(EStat::Health,Health);
 	GetStat(EStat::MaxHealth,MaxHealth);
-	int NewHealth = FMath::Clamp(Health + ChangeInHealth, 0, MaxHealth);;
+	int NewHealth = FMath::Clamp(Health + ChangeInHealth, 0, MaxHealth);
 	ChangeStat(EStat::Health, NewHealth);
 	if (NewHealth == 0)
 		Die();
 }
+
+float AUnitBase::MitigationFactor(EDamageType DamageType)
+{
+	float MaxArmour = 75;		//TODO: Put this somewhere it makes sense
+	float MaxMagicResist = 75;	//TODO: Put this somewhere it makes sense
+
+	// 0.8 means early armour contributes slightly more than late armour
+	float Curve = 0.8;
+	float Mitigation;
+	float MaxValue;
+	
+	switch (DamageType)
+	{
+	default:
+		return 1.f; // no mitigation for unhandled damage types
+	case EDamageType::Physical:
+		GetStat(EStat::Armour, Mitigation);
+		MaxValue = MaxArmour;
+		break;
+	case EDamageType::Magical:
+		GetStat(EStat::MagicResist, Mitigation);
+		MaxValue = MaxMagicResist;
+		break;
+	}
+	Mitigation = FMath::Clamp(Mitigation, 0.f, MaxValue);
+	float Reduction = 1 - (0.75 * FMath::Pow(Mitigation/MaxValue, Curve));
+
+	return Reduction;;
+}
+
+float AUnitBase::AbilityFactor()
+{
+	/*	Run through an array of effects and check if they are affecting damage received
+	 *
+	 */
+	return 1.f;
+}
+
 
 void AUnitBase::Die()
 {
