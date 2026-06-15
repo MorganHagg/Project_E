@@ -12,17 +12,7 @@
 
 class UBehaviorTree;
 class AAIUnit;
-class UUnitHandler;
 class UAbility;
-
-// Enum
-UENUM(BlueprintType)
-enum class EUnitArchetype : uint8
-{
-	Warrior,
-	Mage,
-	Ranger
-};
 
 UCLASS()
 class PROJECT_E_API AUnitBase : public ACharacter, public IDamageable
@@ -34,42 +24,14 @@ public:
 
 protected:
 	virtual void BeginPlay() override;
-
-	void CreateDecal();
 	
 public:
 	virtual void Tick(float DeltaTime) override;
-	
-	UFUNCTION(BlueprintCallable, Category = "Decals")
-	void DrawDecal();
 
-	UFUNCTION(BlueprintCallable, Category = "Decals")
-	void RemoveDecal();
-
-	UFUNCTION(BlueprintCallable, Category = "Decals")
-	void SetDecalColor(FLinearColor Color);
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Decals")
-	UMaterialInterface* DecalMaterial;
-
-	UPROPERTY()
-	UDecalComponent* DecalComponent;
-
-	UPROPERTY()
-	UMaterialInstanceDynamic* DecalMatInstance;
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Decals")
-	float DecalSize = 128.f;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Decals")
-	float DecalThickness = 128.f;
-
-	UUnitHandler* MyHandler;
 	AAIUnit* AIController = nullptr;
 	
-	void SetHandler(UUnitHandler* NewHandler);
 	void SetAIController(AAIUnit* NewAIController);
-	void InitFromSpawnData ();
+
 	UPROPERTY(BlueprintReadWrite)
 	TMap<EStat, float> Stats;
 	bool GetStat(EStat Stat, float& OutValue) const;
@@ -105,10 +67,6 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void ActivateAbility(int AbilityIndex);
 	
-	UPROPERTY(BlueprintReadWrite)
-	EUnitArchetype Archetype = EUnitArchetype::Warrior;
-
-	void SetArchetype(EUnitArchetype NewArchetype); 
 	void FixLocAndRot();
 	
 	// Interface functions

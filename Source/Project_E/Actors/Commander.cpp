@@ -1,4 +1,7 @@
-﻿#include "Commander.h"
+﻿// Engine classes
+#include "Commander.h"
+// Custom classes
+#include "../Unit/UnitBase.h"
 
 ACommander::ACommander()
 {

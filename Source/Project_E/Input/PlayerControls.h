@@ -7,7 +7,7 @@
 #include "PlayerControls.generated.h"
 
 class AUnitBase;
-class UUnitHandler;
+class APlayerUnit;
 class AMainHUD;
 
 UCLASS()
@@ -59,6 +59,17 @@ public:
 
 	AMainHUD* HUD;
 
-	UPROPERTY(BlueprintReadOnly)
-	UUnitHandler* UnitHandler;
+	// Squad
+	void AddToSquad(APlayerUnit* Unit);
+	void RemoveFromSquad(APlayerUnit* Unit);
+
+	bool IsInSquad(APlayerUnit* Unit);
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TMap<APlayerUnit*, bool> Squad;
+
+	void SquadMove(FVector Location);
+
+	void SquadAttack(AUnitBase* Target);
+
 };

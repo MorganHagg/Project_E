@@ -5,21 +5,14 @@
 #include "Components/DecalComponent.h"
 #include "Materials/MaterialInstanceDynamic.h"
 // Custom classes
-#include "AudioMixerBlueprintLibrary.h"
 #include "../Input/PlayerControls.h"
 #include "../AI/AIUnit.h"
 #include "../Ability/Ability.h"
 #include "../Misc/FUnitSpawnDataRow.h"
-#include "../Component/UnitHandler.h"
 
 AUnitBase::AUnitBase()
 {
 	PrimaryActorTick.bCanEverTick = true;
-	
-	DecalMaterial = LoadObject<UMaterialInterface>(
-		nullptr,
-		TEXT("/Game/Assets/Decal/UnitTarget_Mat")
-	);
 	AutoPossessAI = EAutoPossessAI::Spawned;
 	AIControllerClass = AAIUnit::StaticClass();
 }
@@ -27,36 +20,6 @@ AUnitBase::AUnitBase()
 void AUnitBase::BeginPlay()
 {
 	Super::BeginPlay();
-	CreateDecal();
-	//SetPlayerController();
-}
-
-void AUnitBase::CreateDecal()
-{
-	if (GetMesh())
-		GetMesh()->bReceivesDecals = false;
-
-	if (!DecalMaterial) return;
-
-	DecalMatInstance = UMaterialInstanceDynamic::Create(DecalMaterial, this);
-
-	FRotator DecalRotation = FRotator(-90.f, 0.f, 0.f);
-
-	FVector DecalLocation = GetActorLocation();
-	DecalLocation.Z -= 90.f;
-
-	DecalComponent = UGameplayStatics::SpawnDecalAttached(
-		DecalMatInstance,
-		FVector (DecalThickness, DecalSize, DecalSize),
-		GetRootComponent(),
-		NAME_None,
-		DecalLocation,
-		DecalRotation,
-		EAttachLocation::KeepWorldPosition,
-		0.f
-	);
-	DecalComponent->SetVisibility(false);	// Starts the unit with decal off
-	
 }
 
 void AUnitBase::Tick(float DeltaTime)
@@ -64,56 +27,9 @@ void AUnitBase::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-void AUnitBase::DrawDecal()
-{
-	if (DecalComponent)
-		DecalComponent->SetVisibility(true);
-}
-
-void AUnitBase::RemoveDecal()
-{
-	if (DecalComponent)
-		DecalComponent->SetVisibility(false);
-}
-
-void AUnitBase::SetDecalColor(FLinearColor Color)
-{
-	if (!DecalMatInstance) return;
-	DecalMatInstance->SetVectorParameterValue(TEXT("TintColor"), Color);
-}
-
-void AUnitBase::SetHandler(UUnitHandler* NewHandler)
-{
-	MyHandler = NewHandler;
-}
-
 void AUnitBase::SetAIController(AAIUnit* NewAIController)
 {
 	AIController = NewAIController;
-}
-
-void AUnitBase::InitFromSpawnData()
-{
-	UDataTable* StatTable = LoadObject<UDataTable>(nullptr,
-		TEXT("/Game/Framework/DataTable/DT_UnitSpawnData.DT_UnitSpawnData"));
-	if (!StatTable) return;
-
-	
-	FName RowName = FName(*StaticEnum<EUnitArchetype>()->GetNameStringByValue((int64)Archetype));
-	FFUnitSpawnDataRow* Row = StatTable->FindRow<FFUnitSpawnDataRow>(RowName, TEXT("InitData"));
-	if (!Row)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("No stat row found for %s"), *GetClass()->GetDisplayNameText().ToString());
-		return;
-	}
-	
-	GetMesh()->SetSkeletalMesh(Row->Mesh);
-	FixLocAndRot();
-	BehaviorTree = Row->BehaviorTree;
-	if (AIController && BehaviorTree)
-		AIController->RunBehaviorTree(BehaviorTree);
-	GrantedAbilities = Row->DefaultAbilities;
-	Stats = Row->Stats;
 }
 
 bool AUnitBase::GetStat(EStat Stat, float& OutValue) const
@@ -204,10 +120,6 @@ void AUnitBase::ActivateAbility(int AbilityIndex)
 		Ability->Initiate(this);
 }
 
-void AUnitBase::SetArchetype(EUnitArchetype NewArchetype)
-{
-	Archetype = NewArchetype;
-}
 
 // Sets the Unit at the bottom of capsule component, and rotates it correctly
 void AUnitBase::FixLocAndRot()

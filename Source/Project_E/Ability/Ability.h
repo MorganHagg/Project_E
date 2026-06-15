@@ -12,6 +12,7 @@
 class AProjectile;
 class AUnitBase;
 class UActionManager;
+class APlayerControls;
 
 // Enum
 UENUM(BlueprintType)
@@ -58,6 +59,8 @@ public:
 
 	UWorld* World;
 	FActorSpawnParameters SpawnParams;
+
+	APlayerControls* MyController;
 
 	void Initiate(AUnitBase* Owner);
 	

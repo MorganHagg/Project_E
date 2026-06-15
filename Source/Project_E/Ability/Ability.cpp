@@ -4,8 +4,9 @@
 #include "SAdvancedTransformInputBox.h"
 #include "Engine/OverlapResult.h"
 // Custom classes
-#include "../Component/UnitHandler.h"
 #include "../Unit/UnitBase.h"
+#include "../Unit/PlayerUnit.h"
+#include "../Input/PlayerControls.h"
 
 UAbility::UAbility()
 {
@@ -17,6 +18,10 @@ void UAbility::Initiate(AUnitBase* Owner)
 	MyOwner = Owner;
 	if (!MyOwner) { EndAbility(); return; }
 	World = MyOwner->GetWorld();
+	if (APlayerController* Controller = UGameplayStatics::GetPlayerController(World, 0))
+	{
+		MyController = StaticCast<APlayerControls*>(Controller);
+	}
 	Activate(MyOwner, MyOwner->AIController);
 }
 
@@ -78,15 +83,17 @@ TArray<AUnitBase*> UAbility::RunEffect_AOE(FVector Location, float Radius, ETarg
 	FCollisionShape Sphere = FCollisionShape::MakeSphere(Radius);
 	FCollisionQueryParams Params;
 	
-	if (World->OverlapMultiByChannel(Overlaps, Location, FQuat::Identity, ECC_Pawn, Sphere, Params) && MyOwner->MyHandler)
+	if (World->OverlapMultiByChannel(Overlaps, Location, FQuat::Identity, ECC_Pawn, Sphere, Params) && MyController)
 		for (FOverlapResult& Overlap : Overlaps)
 		{
 			AUnitBase* Unit = Cast<AUnitBase>(Overlap.GetActor());
 			if (!Unit) continue;
 
+			bool bIsPlayerUnit = Cast<APlayerUnit>(Unit) != nullptr;
+
 			if (TargetSelection == ETargetSelection::All ||
-			   (TargetSelection == ETargetSelection::Friendly && MyOwner->MyHandler->IsInSquad(Unit)) ||
-			   (TargetSelection == ETargetSelection::Hostile && !MyOwner->MyHandler->IsInSquad(Unit)))
+			   (TargetSelection == ETargetSelection::Friendly && bIsPlayerUnit) ||
+			   (TargetSelection == ETargetSelection::Hostile && !bIsPlayerUnit))
 			{
 				Targets.AddUnique(Unit);
 			}

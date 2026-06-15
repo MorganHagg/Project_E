@@ -1,5 +1,5 @@
 ﻿#include "MainHUD.h"
-#include "../Unit/UnitBase.h"
+#include "../Unit/PlayerUnit.h"
 #include "../Input/PlayerControls.h"
 
 void AMainHUD::BeginPlay()
@@ -21,7 +21,7 @@ void AMainHUD::DrawHUD()
 		DrawRect(DrawColor, PointA.X, PointA.Y, PointB.X - PointA.X, PointB.Y - PointA.Y);
 
 		SelectedUnits.Empty();
-		bool bSuccess = GetActorsInSelectionRectangle<AUnitBase>(
+		bool bSuccess = GetActorsInSelectionRectangle<APlayerUnit>(
 	   PointA, 
 	   PointB, 
 	   SelectedUnits, 
@@ -38,7 +38,7 @@ void AMainHUD::StartSelection()
 
 
 // void AMainHUD::EndSelection()
-TArray<class AUnitBase*> AMainHUD::EndSelection()
+TArray<class APlayerUnit*> AMainHUD::EndSelection()
 {
 	bIsDrawing = false;
 	return SelectedUnits;

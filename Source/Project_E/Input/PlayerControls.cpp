@@ -5,14 +5,14 @@
 #include "../HUD/MainHUD.h"
 #include "../AI/AIUnit.h"
 #include "../Unit/UnitBase.h"
-#include "../Component/UnitHandler.h"
+#include "../Unit/PlayerUnit.h"
+#include "../Misc/UnitManager.h"
 
 APlayerControls::APlayerControls()
 {
 	PrimaryActorTick.bCanEverTick = true;
 	bEnableClickEvents = true;
 	bEnableMouseOverEvents = true;
-	UnitHandler = CreateDefaultSubobject<UUnitHandler>(TEXT("UnitHandler"));
 }
 
 
@@ -66,12 +66,12 @@ void APlayerControls::SelectStarted()
 
 void APlayerControls::SelectReleased()
 {
-	TArray<AUnitBase*> SelectedUnits;
+	TArray<APlayerUnit*> SelectedUnits;
 	SelectedUnits = HUD->EndSelection();
 		
-	for (AUnitBase* Unit : SelectedUnits)
+	for (APlayerUnit* Unit : SelectedUnits)
 	{
-		if (bool* bSelected = UnitHandler->Squad.Find(Unit))
+		if (bool* bSelected = Squad.Find(Unit))
 			*bSelected = true;
 	}
 	UpdateSelectedUnits();
@@ -85,13 +85,13 @@ void APlayerControls::CommandPressed()
 
 	if (AUnitBase* Target = Cast<AUnitBase>(Hit.GetActor()))
 	{
-		if (UnitHandler->IsInSquad(Target))
+		if (Cast<APlayerUnit>(Target))
 		{
 			UE_LOG(LogTemp, Warning, TEXT("Friendly target"))
 		}
 		else
 		{
-			for (auto& Pair : UnitHandler->Squad)
+			for (auto& Pair : Squad)
 			{
 				if (Pair.Value == true)
 				{
@@ -103,7 +103,7 @@ void APlayerControls::CommandPressed()
 	}
 	else
 	{
-		for (auto& Pair : UnitHandler->Squad)
+		for (auto& Pair : Squad)
 		{
 			if (Pair.Value == true)
 			{
@@ -121,7 +121,7 @@ void APlayerControls::CommandReleased()
 
 void APlayerControls::ClearSelectedUnits()
 {
-	for (auto& Pair : UnitHandler->Squad)
+	for (auto& Pair : Squad)
 	{
 		Pair.Value = false;
 	}
@@ -129,11 +129,34 @@ void APlayerControls::ClearSelectedUnits()
 
 void APlayerControls::UpdateSelectedUnits()
 {
-	for (auto& Pair : UnitHandler->Squad)
+	for (auto& Pair : Squad)
 	{
 		if (Pair.Value == true)
 			Pair.Key->DrawDecal();
 		else
 			Pair.Key->RemoveDecal();
 	}
+}
+
+void APlayerControls::AddToSquad(APlayerUnit* Unit)
+{
+	Squad.Add(Unit);
+}
+
+void APlayerControls::RemoveFromSquad(APlayerUnit* Unit)
+{
+	Squad.Remove(Unit);
+}
+
+bool APlayerControls::IsInSquad(APlayerUnit* Unit)
+{
+	return Squad.Contains(Unit);
+}
+
+void APlayerControls::SquadMove(FVector Location)
+{
+}
+
+void APlayerControls::SquadAttack(AUnitBase* Target)
+{
 }

@@ -5,6 +5,8 @@
 //Generated
 #include "Commander.generated.h"
 
+class AUnitBase;
+
 UCLASS()
 class PROJECT_E_API ACommander : public APawn
 {
@@ -14,4 +16,6 @@ public:
 	ACommander();
 	void BeginPlay() override;
 	void Tick(float DeltaTime) override;
+
+
 };

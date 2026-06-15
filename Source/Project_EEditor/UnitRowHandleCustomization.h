@@ -1,0 +1,20 @@
+﻿#pragma once
+
+#include "CoreMinimal.h"
+#include "IPropertyTypeCustomization.h"
+
+class FUnitRowHandleCustomization : public IPropertyTypeCustomization
+{
+public:
+    static TSharedRef<IPropertyTypeCustomization> MakeInstance();
+
+    virtual void CustomizeHeader(TSharedRef<IPropertyHandle> PropertyHandle, FDetailWidgetRow& HeaderRow, IPropertyTypeCustomizationUtils& CustomizationUtils) override;
+    virtual void CustomizeChildren(TSharedRef<IPropertyHandle> PropertyHandle, IDetailChildrenBuilder& ChildBuilder, IPropertyTypeCustomizationUtils& CustomizationUtils) override;
+
+private:
+    TSharedPtr<IPropertyHandle> RowNameHandle;
+    TArray<TSharedPtr<FName>> RowNames;
+
+    void RefreshRowNames();
+    TSharedRef<SWidget> MakeRowNameWidget();
+};

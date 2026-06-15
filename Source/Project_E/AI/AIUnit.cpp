@@ -16,7 +16,6 @@ void AAIUnit::OnPossess(APawn* InPawn)
 	if (AUnitBase* Unit = Cast<AUnitBase>(InPawn))
 	{
 		Unit->SetAIController(this);
-		Unit->InitFromSpawnData();
 	}
 }
 
