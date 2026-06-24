@@ -8,7 +8,6 @@ IMPLEMENT_MODULE(FProject_EEditorModule, Project_EEditor)
 
 void FProject_EEditorModule::StartupModule()
 {
-    UE_LOG(LogTemp, Warning, TEXT("Project_EEditor StartupModule fired"));
     
     FPropertyEditorModule& PropertyModule = FModuleManager::LoadModuleChecked<FPropertyEditorModule>("PropertyEditor");
     PropertyModule.RegisterCustomPropertyTypeLayout(
