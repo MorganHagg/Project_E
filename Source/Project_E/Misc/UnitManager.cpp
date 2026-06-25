@@ -22,15 +22,20 @@ void UUnitManager::Initialize(FSubsystemCollectionBase& Collection)
 
 AUnitBase* UUnitManager::SpawnUnit(FUnitRowHandle RowHandle, FVector Location)
 {
+	
 	if (!UnitDataTable) return nullptr;
 
 	FFUnitSpawnDataRow* Row = UnitDataTable->FindRow<FFUnitSpawnDataRow>(RowHandle.RowName, TEXT("SpawnUnit"));
 	if (!Row) return nullptr;
 
+	FActorSpawnParameters SpawnCollision;
+	SpawnCollision.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+	
 	AUnitBase* NewUnit = GetWorld()->SpawnActor<AUnitBase>(
 		AUnitBase::StaticClass(),
 		Location,
-		FRotator::ZeroRotator);
+		FRotator::ZeroRotator,
+		SpawnCollision);
 
 	if (!NewUnit) return nullptr;
 
@@ -47,10 +52,13 @@ AUnitBase* UUnitManager::SpawnUnit(FUnitRowHandle RowHandle, FVector Location)
 
 APlayerUnit* UUnitManager::SpawnPlayerUnit(FPlayerUnitParams SpawnParams, FVector Location)
 {
+	FActorSpawnParameters SpawnCollision;
+	SpawnCollision.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 	APlayerUnit* NewUnit = GetWorld()->SpawnActor<APlayerUnit>(
 		APlayerUnit::StaticClass(),
 		Location,
-		FRotator::ZeroRotator);
+		FRotator::ZeroRotator,
+		SpawnCollision);
 
 	if (!NewUnit) return nullptr;
 

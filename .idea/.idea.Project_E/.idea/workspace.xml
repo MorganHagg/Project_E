@@ -13,9 +13,11 @@
   <component name="ChangeListManager">
     <list default="true" id="85a82e2a-183c-4528-aacd-187cd00cb16d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project_E/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project_E/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Project_E.Target.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E.Target.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Project_EEditor.Target.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_EEditor.Target.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Project_EEditor/Project_EEditor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_EEditor/Project_EEditor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vsconfig" beforeDir="false" afterPath="$PROJECT_DIR$/.vsconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Framework/BP_Commander.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/BP_Commander.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Levels/Test.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Test.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project_E.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/Project_E.uproject" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Misc/UnitManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Misc/UnitManager.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,6 +247,9 @@
       <workItem from="1781524837597" duration="947000" />
       <workItem from="1781525861953" duration="1369000" />
       <workItem from="1782114892734" duration="818000" />
+      <workItem from="1782305338444" duration="595000" />
+      <workItem from="1782379738341" duration="282000" />
+      <workItem from="1782380374600" duration="2000" />
     </task>
     <servers />
   </component>
