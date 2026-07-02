@@ -1,6 +1,6 @@
 ﻿#include "MainHUD.h"
-#include "../Actors/UnitBase.h"
-#include "../Input/ControllerBase.h"
+#include "../Unit/PlayerUnit.h"
+#include "../Input/PlayerControls.h"
 
 void AMainHUD::BeginPlay()
 {
@@ -10,7 +10,7 @@ void AMainHUD::BeginPlay()
 
 void AMainHUD::SetController()
 {
-	Controller = Cast<AControllerBase>(GetWorld()->GetFirstPlayerController());
+	Controller = Cast<APlayerControls>(GetWorld()->GetFirstPlayerController());
 }
 
 void AMainHUD::DrawHUD()
@@ -21,7 +21,7 @@ void AMainHUD::DrawHUD()
 		DrawRect(DrawColor, PointA.X, PointA.Y, PointB.X - PointA.X, PointB.Y - PointA.Y);
 
 		SelectedUnits.Empty();
-		bool bSuccess = GetActorsInSelectionRectangle<AUnitBase>(
+		bool bSuccess = GetActorsInSelectionRectangle<APlayerUnit>(
 	   PointA, 
 	   PointB, 
 	   SelectedUnits, 
@@ -38,7 +38,7 @@ void AMainHUD::StartSelection()
 
 
 // void AMainHUD::EndSelection()
-TArray<class AUnitBase*> AMainHUD::EndSelection()
+TArray<class APlayerUnit*> AMainHUD::EndSelection()
 {
 	bIsDrawing = false;
 	return SelectedUnits;

@@ -4,6 +4,8 @@
     <projectFile>C:/Program Files/Epic Games/UE_5.7/Engine/Source/Programs/AutomationTool/AutomationTool.csproj</projectFile>
     <projectFile kind="Docker">C:/Program Files/Epic Games/UE_5.7/Engine/Source/Programs/Shared/EpicGames.Perforce.Fixture/EpicGames.Perforce.Fixture.csproj</projectFile>
     <projectFile>C:/Program Files/Epic Games/UE_5.7/Engine/Source/Programs/UnrealBuildTool/UnrealBuildTool.csproj</projectFile>
+    <projectFile>C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.Benchmarks/EpicGames.Benchmarks.csproj</projectFile>
+    <projectFile kind="Docker">C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.Perforce.Fixture/EpicGames.Perforce.Fixture.csproj</projectFile>
     <projectFile>Intermediate/ProjectFiles/Project_E.vcxproj</projectFile>
     <projectFile>Intermediate/ProjectFiles/UE5.vcxproj</projectFile>
   </component>
@@ -12,29 +14,57 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85a82e2a-183c-4528-aacd-187cd00cb16d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Source/Project_E/Ability/Ability.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/Project_E/Ability/Ability.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/Project_E/Ability/Projectile.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/Project_E/Ability/Projectile.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/Project_E/Ability/TargetLocation.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/Project_E/Ability/TargetLocation.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project_E/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project_E/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Config/DefaultEditor.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEditor.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Mesh/Arm.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Mesh/Clothes.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Mesh/Eye01.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Mesh/Eye02.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Mesh/Hair.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Mesh/Hand.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Mesh/Skin.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Mesh/TheGuy.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Mesh/TheGuy_PhysicsAsset.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Mesh/TheGuy_Skeleton.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Framework/Input/BP_ControllerBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/Input/BP_ControllerBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Framework/Units/BP_Warrior.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/Units/BP_Warrior.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Project_E/Actors/UnitBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Actors/UnitBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Project_E/Actors/UnitBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Actors/UnitBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Project_E/Input/ControllerBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Input/ControllerBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Mesh/Structures/ThinWall.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_01.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_01.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_02.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_02.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_03.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_03.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_04.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_04.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_05.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_05.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_06.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_06.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_07.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_07.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_08.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_08.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_09.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_09.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_10.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_10.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_11.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_11.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_12.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_12.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_13.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_13.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_14.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_14.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_15.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_15.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_16.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_16.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_17.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_17.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_18.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_18.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_19.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_19.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_20.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_20.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_21.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_21.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_22.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_22.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_23.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_23.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_24.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_24.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_25.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_25.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_26.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_26.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_27.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_27.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_28.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_28.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_29.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_29.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_30.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_30.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_31.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_31.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_32.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_32.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_33.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_33.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_34.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_34.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_35.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_35.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_36.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_36.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_37.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_37.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_38.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_38.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_39.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_39.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_40.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Grass_40.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Mat_Grass_Bot.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Grass/Mat_Grass_Top.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Mat_Tree.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Mat_TreeLeafs.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/TreeLeafs.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/TreeTrunk.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Nature/Tree_01.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Levels/Test.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Test.umap" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,8 +93,19 @@
     <setting file="file://C:/Program Files/Epic Games/UE_5.7/Engine/Source/Editor/EditorFramework/Private/Viewports/SDepthBar.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Core/Public/Math/UnitConversion.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Core/Public/Math/UnitConversion.inl" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Core/Public/String/FormatStringSanErrors.inl" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/CoreUObject/Public/UObject/Class.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/CoreUObject/Public/UObject/UObjectGlobals.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Engine/Classes/Engine/GameInstance.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Engine/Classes/GameFramework/HUD.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Project_E/Input/PlayerControls.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Project_E/Input/PlayerControls.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Project_E/Unit/UnitBase.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Project_E/Unit/UnitBase.h" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="Toolset" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -146,6 +187,29 @@
         <option name="Build" />
       </method>
     </configuration>
+    <configuration name="EpicGames.Benchmarks" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="ENV_FILE_PATHS" value="" />
+      <option name="REDIRECT_INPUT_PATH" value="" />
+      <option name="PTY_MODE" value="Auto" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
+      <option name="PROJECT_PATH" value="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.Benchmarks/EpicGames.Benchmarks.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
     <configuration name="UnrealBuildTool" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -168,6 +232,17 @@
       <method v="2">
         <option name="Build" />
       </method>
+    </configuration>
+    <configuration name="EpicGames.Perforce.Fixture/Dockerfile (1)" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="containerName" value="epicgames.perforce.fixture" />
+          <option name="contextFolderPath" value="D:\Unreal Projects\Project_E" />
+          <option name="sourceFilePath" value="C:/Program Files/Epic Games/UE_5.8/Engine/Source/Programs/Shared/EpicGames.Perforce.Fixture/Dockerfile" />
+        </settings>
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
+      <method v="2" />
     </configuration>
     <configuration name="EpicGames.Perforce.Fixture/Dockerfile" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
       <deployment type="dockerfile">
@@ -216,12 +291,55 @@
       <workItem from="1776856271971" duration="14928000" />
       <workItem from="1776871980833" duration="205000" />
       <workItem from="1776872227375" duration="729000" />
+      <workItem from="1776943662400" duration="264000" />
+      <workItem from="1776944234680" duration="595000" />
+      <workItem from="1776944928652" duration="679000" />
+      <workItem from="1776946209206" duration="5567000" />
+      <workItem from="1776953425641" duration="723000" />
+      <workItem from="1777029420200" duration="1782000" />
+      <workItem from="1777031261157" duration="6780000" />
+      <workItem from="1777288367531" duration="2742000" />
+      <workItem from="1777291244873" duration="15118000" />
+      <workItem from="1777307039938" duration="3582000" />
+      <workItem from="1777463341122" duration="4934000" />
+      <workItem from="1777470534741" duration="40000" />
+      <workItem from="1777470614703" duration="110000" />
+      <workItem from="1777470761453" duration="48000" />
+      <workItem from="1777470877451" duration="1570000" />
+      <workItem from="1777472624934" duration="2801000" />
+      <workItem from="1777533746245" duration="402000" />
+      <workItem from="1777534203515" duration="15440000" />
+      <workItem from="1777629400233" duration="4574000" />
+      <workItem from="1777634617931" duration="4315000" />
+      <workItem from="1778056576075" duration="18472000" />
+      <workItem from="1781166263395" duration="585000" />
+      <workItem from="1781504354843" duration="2568000" />
+      <workItem from="1781507105218" duration="717000" />
+      <workItem from="1781507973667" duration="1130000" />
+      <workItem from="1781509270093" duration="2642000" />
+      <workItem from="1781512020391" duration="311000" />
+      <workItem from="1781512373092" duration="4592000" />
+      <workItem from="1781517087874" duration="1426000" />
+      <workItem from="1781518571509" duration="300000" />
+      <workItem from="1781518991418" duration="11000" />
+      <workItem from="1781519233132" duration="181000" />
+      <workItem from="1781519490430" duration="98000" />
+      <workItem from="1781519628723" duration="5148000" />
+      <workItem from="1781524837597" duration="947000" />
+      <workItem from="1781525861953" duration="1369000" />
+      <workItem from="1782114892734" duration="818000" />
+      <workItem from="1782305338444" duration="595000" />
+      <workItem from="1782379738341" duration="282000" />
+      <workItem from="1782380374600" duration="2000" />
+      <workItem from="1782380408681" duration="604000" />
+      <workItem from="1782718373845" duration="593000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

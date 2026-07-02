@@ -3,12 +3,25 @@
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
 #include "Engine/LatentActionManager.h"
+// Custom classes
+#include "../Misc/AbilityType.h"
 // Generated classes
 #include "Ability.generated.h"
 
 // Forward declarations
 class AProjectile;
 class AUnitBase;
+class UActionManager;
+class APlayerControls;
+
+// Enum
+UENUM(BlueprintType)
+enum class ETargetSelection : uint8
+{
+	Friendly,
+	Hostile,
+	All
+};
 
 // Effects
 class FEffect_ProjectileAction : public FPendingLatentAction
@@ -38,17 +51,21 @@ class PROJECT_E_API UAbility : public UObject
 	UAbility();
 
 public:
-	UFUNCTION(BlueprintCallable, Category="Ability")
-	AUnitBase* GetOwner();
-
+	UPROPERTY(BlueprintReadOnly)
+	AUnitBase* MyOwner;
+	
 	UPROPERTY(BlueprintReadWrite)
 	AUnitBase* MyTarget;
 
 	UWorld* World;
 	FActorSpawnParameters SpawnParams;
+
+	APlayerControls* MyController;
+
+	void Initiate(AUnitBase* Owner);
 	
 	UFUNCTION(BlueprintNativeEvent)
-	void Activate();
+	void Activate(AUnitBase* Owner, AAIUnit* AIController);
 
 	UFUNCTION(BlueprintCallable)
 	void EndAbility();
@@ -57,17 +74,20 @@ public:
 	void RunEffect_Projectile(FLatentActionInfo LatentInfo, UStaticMesh* Mesh, FVector Target, float Speed);
 	
 	UFUNCTION(BlueprintCallable, Category="Ability")
-	void RunEffect_Damage();
+	void RunEffect_Damage(AUnitBase* Target, int RawDamage, EAbilityType DamageType);
 
 	UFUNCTION(BlueprintCallable, Category="Ability")
-	void RunEffect_Heal();
+	void RunEffect_Heal(AUnitBase* Target, int RawHealing);
 
 	UFUNCTION(BlueprintCallable, Category="Ability")
-	void RunEffect_AOE();
+	TArray<AUnitBase*> RunEffect_AOE(FVector Location, float Radius, ETargetSelection TargetSelection);
 
 	UFUNCTION(BlueprintCallable, Category="Ability")
 	void RunEffect_ApplyStasis();
 
 	UFUNCTION(BlueprintCallable, Category="Ability")
 	AActor* RunEffect_SpawnObject(AActor* SpawnActor, FVector SpawnLocation);
+
+	UPROPERTY(BlueprintReadOnly)
+	float CoolDown = 0.f;
 };

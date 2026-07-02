@@ -5,8 +5,8 @@
 // Generated
 #include "MainHUD.generated.h"
 
-class AUnitBase;
-class AControllerBase;
+class APlayerUnit;
+class APlayerControls;
 
 UCLASS()
 class PROJECT_E_API AMainHUD : public AHUD
@@ -20,10 +20,10 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void StartSelection();
 	UFUNCTION(BlueprintCallable)
-	TArray<class AUnitBase*> EndSelection();
-	TArray<AUnitBase*> SelectedUnits;
+	TArray<class APlayerUnit*> EndSelection();
+	TArray<APlayerUnit*> SelectedUnits;
 	
-	AControllerBase* Controller = nullptr;
+	APlayerControls* Controller = nullptr;
 	FVector2D PointA;
 	FVector2D PointB;
 	bool bIsDrawing = false;
