@@ -1,7 +1,8 @@
 ﻿#pragma once
 // Engine classes
 #include "CoreMinimal.h"
-#include "GameFramework/Character.h"
+#include "PaperZDCharacter.h"
+#include "PaperZDAnimBP.h"
 #include "Kismet/GameplayStatics.h"
 // Custom classes
 #include "../Misc/Stat.h"
@@ -15,7 +16,7 @@ class AAIUnit;
 class UAbility;
 
 UCLASS()
-class PROJECT_E_API AUnitBase : public ACharacter, public IDamageable
+class PROJECT_E_API AUnitBase : public APaperZDCharacter, public IDamageable
 {
 	GENERATED_BODY()
 
@@ -49,6 +50,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void ClearTarget();
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPaperZDAnimBP* AnimBP;
+	
 	UPROPERTY(EditAnywhere, Category = "AI")
 	UBehaviorTree* BehaviorTree;
 	
@@ -66,8 +70,6 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void ActivateAbility(int AbilityIndex);
-	
-	void FixLocAndRot();
 	
 	// Interface functions
 	float GetCurrentHealth();

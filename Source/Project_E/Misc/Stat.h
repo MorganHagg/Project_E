@@ -1,5 +1,8 @@
 ﻿#pragma once
 
+#include "CoreMinimal.h"
+#include "Stat.generated.h"
+
 UENUM(BlueprintType)
 enum class EStat : uint8
 {

@@ -3,6 +3,7 @@
 #include "CoreMinimal.h"
 #include "Engine/DataTable.h"
 #include "Stat.h"
+#include "PaperZDAnimInstance.h"
 #include "FUnitSpawnDataRow.generated.h"
 
 USTRUCT(BlueprintType)
@@ -11,10 +12,10 @@ struct FFUnitSpawnDataRow : public FTableRowBase
 	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	USkeletalMesh* Mesh;
+	TSubclassOf<UPaperZDAnimInstance> AnimBP;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	UBehaviorTree* BehaviorTree;
+	UBehaviorTree* BehaviorTree = nullptr;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<TSubclassOf<UAbility>> DefaultAbilities;

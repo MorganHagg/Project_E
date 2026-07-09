@@ -4,6 +4,7 @@
 #include "BehaviorTree/BehaviorTree.h"
 #include "Components/DecalComponent.h"
 #include "Materials/MaterialInstanceDynamic.h"
+#include "GameFramework/CharacterMovementComponent.h"
 // Custom classes
 #include "../Input/PlayerControls.h"
 #include "../AI/AIUnit.h"
@@ -15,6 +16,9 @@ AUnitBase::AUnitBase()
 	PrimaryActorTick.bCanEverTick = true;
 	AutoPossessAI = EAutoPossessAI::Spawned;
 	AIControllerClass = AAIUnit::StaticClass();
+	bUseControllerRotationYaw = false;
+
+	GetCharacterMovement()->bOrientRotationToMovement = false;
 }
 
 void AUnitBase::BeginPlay()
@@ -121,18 +125,6 @@ void AUnitBase::ActivateAbility(int AbilityIndex)
 }
 
 
-// Sets the Unit at the bottom of capsule component, and rotates it correctly
-void AUnitBase::FixLocAndRot()
-{
-	GetMesh()->SetRelativeLocationAndRotation(
-	FVector(											// offset down to feet
-		0.f,
-		0.f,
-		-GetCapsuleComponent()->GetScaledCapsuleHalfHeight()),
-	FRotator(0.f, -90.f, 0.f)			// rotate to face forward
-	);
-}
-
 float AUnitBase::GetCurrentHealth()
 {
 	float Health;
@@ -180,7 +172,7 @@ float AUnitBase::MitigationFactor(EAbilityType DamageType)
 	float MaxMagicResist = 75;	//TODO: Put this somewhere it makes sense
 
 	// 0.8 means early armour contributes slightly more than late armour
-	float Curve = 0.8;
+	float Curve = 0.8f;
 	float Mitigation;
 	float MaxValue;
 	

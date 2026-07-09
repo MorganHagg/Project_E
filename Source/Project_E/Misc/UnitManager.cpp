@@ -8,6 +8,7 @@
 #include "../Misc/FPlayerUnitParams.h"
 #include "../Unit/UnitBase.h"
 #include "../Unit/PlayerUnit.h"
+#include "PaperZDAnimationComponent.h"
 
 void UUnitManager::Initialize(FSubsystemCollectionBase& Collection)
 {
@@ -22,25 +23,30 @@ void UUnitManager::Initialize(FSubsystemCollectionBase& Collection)
 
 AUnitBase* UUnitManager::SpawnUnit(FUnitRowHandle RowHandle, FVector Location)
 {
-	
 	if (!UnitDataTable) return nullptr;
 
 	FFUnitSpawnDataRow* Row = UnitDataTable->FindRow<FFUnitSpawnDataRow>(RowHandle.RowName, TEXT("SpawnUnit"));
 	if (!Row) return nullptr;
 
-	FActorSpawnParameters SpawnCollision;
-	SpawnCollision.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
-	
-	AUnitBase* NewUnit = GetWorld()->SpawnActor<AUnitBase>(
-		AUnitBase::StaticClass(),
-		Location,
-		FRotator::ZeroRotator,
-		SpawnCollision);
+	FTransform SpawnTransform(FRotator(0.f, 0.f, 90.f), Location);
+
+	AUnitBase* NewUnit = Cast<AUnitBase>(
+		GetWorld()->SpawnActorDeferred<AUnitBase>(
+			AUnitBase::StaticClass(),
+			SpawnTransform,
+			nullptr,
+			nullptr,
+			ESpawnActorCollisionHandlingMethod::AlwaysSpawn));
 
 	if (!NewUnit) return nullptr;
 
-	NewUnit->GetMesh()->SetSkeletalMesh(Row->Mesh);
-	NewUnit->FixLocAndRot();
+	if (Row->AnimBP)
+	{
+		NewUnit->GetAnimationComponent()->SetAnimInstanceClass(Row->AnimBP);
+	}
+
+	NewUnit->FinishSpawning(SpawnTransform);
+
 	NewUnit->BehaviorTree = Row->BehaviorTree;
 	if (NewUnit->AIController && NewUnit->BehaviorTree)
 		NewUnit->AIController->RunBehaviorTree(NewUnit->BehaviorTree);
@@ -52,18 +58,24 @@ AUnitBase* UUnitManager::SpawnUnit(FUnitRowHandle RowHandle, FVector Location)
 
 APlayerUnit* UUnitManager::SpawnPlayerUnit(FPlayerUnitParams SpawnParams, FVector Location)
 {
-	FActorSpawnParameters SpawnCollision;
-	SpawnCollision.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
-	APlayerUnit* NewUnit = GetWorld()->SpawnActor<APlayerUnit>(
-		APlayerUnit::StaticClass(),
-		Location,
-		FRotator::ZeroRotator,
-		SpawnCollision);
+	FTransform SpawnTransform(FRotator(0.f, 0.f, 90.f), Location);
+
+	APlayerUnit* NewUnit = Cast<APlayerUnit>(
+		GetWorld()->SpawnActorDeferred<APlayerUnit>(
+			APlayerUnit::StaticClass(),
+			SpawnTransform,
+			nullptr,
+			nullptr,
+			ESpawnActorCollisionHandlingMethod::AlwaysSpawn));
 
 	if (!NewUnit) return nullptr;
 
-	NewUnit->GetMesh()->SetSkeletalMesh(SpawnParams.Mesh);
-	NewUnit->FixLocAndRot();
+	if (SpawnParams.AnimBP)
+	{
+		NewUnit->GetAnimationComponent()->SetAnimInstanceClass(SpawnParams.AnimBP);
+	}
+
+	NewUnit->FinishSpawning(SpawnTransform);
 	NewUnit->BehaviorTree = PlayerBehaviorTree;
 	if (NewUnit->AIController && NewUnit->BehaviorTree)
 		NewUnit->AIController->RunBehaviorTree(NewUnit->BehaviorTree);
@@ -75,6 +87,6 @@ void UUnitManager::WritePersistenSquad()
 {
 }
 
-void UUnitManager::ReadPersistenSquad()
+void UUnitManager::ReadPersistentSquad()
 {
 }

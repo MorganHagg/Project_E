@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "CoreMinimal.h"
+#include "PaperZDAnimInstance.h"
 #include "FPlayerUnitParams.generated.h"
 
 USTRUCT(BlueprintType)
@@ -11,6 +12,6 @@ struct FPlayerUnitParams
 	UPROPERTY(BlueprintReadWrite)
 	FString Name;
 
-	UPROPERTY(BlueprintReadWrite)
-	USkeletalMesh* Mesh;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<UPaperZDAnimInstance> AnimBP;
 };

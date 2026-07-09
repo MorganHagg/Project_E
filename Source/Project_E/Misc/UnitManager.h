@@ -35,7 +35,7 @@ public:
 	
 	void WritePersistenSquad();
 
-	void ReadPersistenSquad();
+	void ReadPersistentSquad();
 	
 	TArray<FUnitSaveData> PersistenSquad;
 
