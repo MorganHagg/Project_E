@@ -16,159 +16,23 @@
   <component name="ChangeListManager">
     <list default="true" id="85a82e2a-183c-4528-aacd-187cd00cb16d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project_E/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project_E/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Aoe_Wave/1_Sprite.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Aoe_Wave/Sprites/1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Aoe_Wave/Sprites/1_Sprite_0.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Aoe_Wave/Sprites/1_Sprite_1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Aoe_Wave/Sprites/1_Sprite_2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Aoe_Wave/Sprites/1_Sprite_3.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Aoe_Wave/Sprites/1_Sprite_4.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Aoe_Wave/Sprites/1_Sprite_5.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/BlackHole/BlackHole.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/BlackHole/Sprites/BlackHole_Sprite_0.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/BlackHole/Sprites/BlackHole_Sprite_0.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/BlackHole/Sprites/BlackHole_Sprite_1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/BlackHole/Sprites/BlackHole_Sprite_1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/BlackHole/Sprites/BlackHole_Sprite_2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/BlackHole/Sprites/BlackHole_Sprite_2.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/BlackHole/Sprites/BlackHole_Sprite_3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/BlackHole/Sprites/BlackHole_Sprite_3.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/BlackHole/Sprites/BlackHole_Sprite_4.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/BlackHole/Sprites/BlackHole_Sprite_4.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/BlackHole/Sprites/BlackHole_Sprite_5.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/BlackHole/Sprites/BlackHole_Sprite_5.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/BlackHole/Sprites/BlackHole_Sprite_6.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/BlackHole/Sprites/BlackHole_Sprite_6.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/BlackHole/Sprites/BlackHole_Sprite_7.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/BlackHole/Sprites/BlackHole_Sprite_7.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/BlackHole/Sprites/FB_BlackHole.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Bomb/Bomb.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Bomb/Sprites/Bomb_Sprite_0.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Bomb/Sprites/Bomb_Sprite_0.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Bomb/Sprites/Bomb_Sprite_1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Bomb/Sprites/Bomb_Sprite_1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Bomb/Sprites/Bomb_Sprite_10.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Bomb/Sprites/Bomb_Sprite_10.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Bomb/Sprites/Bomb_Sprite_11.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Bomb/Sprites/Bomb_Sprite_11.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Bomb/Sprites/Bomb_Sprite_2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Bomb/Sprites/Bomb_Sprite_2.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Bomb/Sprites/Bomb_Sprite_3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Bomb/Sprites/Bomb_Sprite_3.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Bomb/Sprites/Bomb_Sprite_4.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Bomb/Sprites/Bomb_Sprite_4.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Bomb/Sprites/Bomb_Sprite_5.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Bomb/Sprites/Bomb_Sprite_5.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Bomb/Sprites/Bomb_Sprite_6.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Bomb/Sprites/Bomb_Sprite_6.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Bomb/Sprites/Bomb_Sprite_7.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Bomb/Sprites/Bomb_Sprite_7.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Bomb/Sprites/Bomb_Sprite_8.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Bomb/Sprites/Bomb_Sprite_8.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Bomb/Sprites/Bomb_Sprite_9.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Bomb/Sprites/Bomb_Sprite_9.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Bomb/Sprites/FB_Bomb.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Coment/comet.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Blue/Explosion_blue_circle1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Blue/Explosion_blue_circle10.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Blue/Explosion_blue_circle10_Sprite.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Blue/Explosion_blue_circle1_Sprite.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Blue/Explosion_blue_circle2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Blue/Explosion_blue_circle2_Sprite.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Blue/Explosion_blue_circle3.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Blue/Explosion_blue_circle3_Sprite.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Blue/Explosion_blue_circle4.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Blue/Explosion_blue_circle4_Sprite.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Blue/Explosion_blue_circle5.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Blue/Explosion_blue_circle5_Sprite.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Blue/Explosion_blue_circle6.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Blue/Explosion_blue_circle6_Sprite.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Blue/Explosion_blue_circle7.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Blue/Explosion_blue_circle7_Sprite.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Blue/Explosion_blue_circle8.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Blue/Explosion_blue_circle8_Sprite.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Blue/Explosion_blue_circle9.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Blue/Explosion_blue_circle9_Sprite.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Blue/FB_Explosion_blue_circle.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Blue/FB_Explosion_blue_circle.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Green/Explosion_gas_circle1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Green/Explosion_gas_circle10.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Green/Explosion_gas_circle10_Sprite.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Green/Explosion_gas_circle1_Sprite.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Green/Explosion_gas_circle2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Green/Explosion_gas_circle2_Sprite.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Green/Explosion_gas_circle3.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Green/Explosion_gas_circle3_Sprite.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Green/Explosion_gas_circle4.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Green/Explosion_gas_circle4_Sprite.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Green/Explosion_gas_circle5.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Green/Explosion_gas_circle5_Sprite.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Green/Explosion_gas_circle6.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Green/Explosion_gas_circle6_Sprite.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Green/Explosion_gas_circle7.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Green/Explosion_gas_circle7_Sprite.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Green/Explosion_gas_circle8.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Green/Explosion_gas_circle8_Sprite.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Green/Explosion_gas_circle9.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Green/Explosion_gas_circle9_Sprite.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Green/FB_Explosion_gas_circle.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Explosion/Explosion_Green/FB_Explosion_gas_circle.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/FireBall_2/Sprite/FireBall_1_Sprite_4.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/FireBall_2/Sprite/FireBall_1_Sprite_4.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/FB_FireBall_3_Cycle.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/FB_FireBall_3_Cycle.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/FB_FireBall_3_Finish.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/FB_FireBall_3_Finish.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/FB_FireBall_3_Start.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/FB_FireBall_3_Start.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__10.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__10.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__10_Sprite.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__10_Sprite.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__11.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__11.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__11_Sprite.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__11_Sprite.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__12.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__12.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__12_Sprite.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__12_Sprite.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__13.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__13.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__13_Sprite.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__13_Sprite.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__14.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__14.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__14_Sprite.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__14_Sprite.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__15.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__15.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__15_Sprite.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__15_Sprite.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__1_Sprite.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__1_Sprite.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__2.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__2_Sprite.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__2_Sprite.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__3.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__3_Sprite.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__3_Sprite.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__4.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__4.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__4_Sprite.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__4_Sprite.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__5.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__5.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__5_Sprite.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__5_Sprite.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__6.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__6.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__6_Sprite.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__6_Sprite.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__7.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__7.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__7_Sprite.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__7_Sprite.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__8.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__8.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__8_Sprite.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__8_Sprite.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__9.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__9.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__9_Sprite.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_3/Sprites/FireBall_3__9_Sprite.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_4/FB_FireBall_4.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_4/FB_FireBall_4.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_4/Sprite/FireBall_4.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_4/Sprite/FireBall_4.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_4/Sprite/FireBall_4__Sprite_0.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_4/Sprite/FireBall_4__Sprite_0.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_4/Sprite/FireBall_4__Sprite_1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_4/Sprite/FireBall_4__Sprite_1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_4/Sprite/FireBall_4__Sprite_2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_4/Sprite/FireBall_4__Sprite_2.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_4/Sprite/FireBall_4__Sprite_3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_4/Sprite/FireBall_4__Sprite_3.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_4/Sprite/FireBall_4__Sprite_4.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_4/Sprite/FireBall_4__Sprite_4.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_4/Sprite/FireBall_4__Sprite_5.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_4/Sprite/FireBall_4__Sprite_5.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_4/Sprite/FireBall_4__Sprite_6.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_4/Sprite/FireBall_4__Sprite_6.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_4/Sprite/FireBall_4__Sprite_7.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Fire/Fireball_4/Sprite/FireBall_4__Sprite_7.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/KillAll/FB_KillAll.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/KillAll/FB_KillAll.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/SunStrike/FB_SunStrike_1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/SunStrike/FB_SunStrike_1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Unassorted/Barrage/Sprites/FB_Barrage.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Unassorted/Barrage/Sprites/Sprites/Barrage1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Unassorted/Barrage/Sprites/Sprites/Barrage1_Sprite_0.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Unassorted/Barrage/Sprites/Sprites/Barrage1_Sprite_1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Unassorted/Barrage/Sprites/Sprites/Barrage1_Sprite_2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Unassorted/Barrage/Sprites/Sprites/Barrage1_Sprite_3.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Unassorted/Barrage/Sprites/Sprites/Barrage1_Sprite_4.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Unassorted/Barrage/Sprites/Sprites/Barrage1_Sprite_5.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Unassorted/Barrage/Sprites/Sprites/Barrage1_Sprite_6.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Unassorted/Barrage/Sprites/Sprites/Barrage1_Sprite_7.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Unassorted/Barrage/Sprites/Sprites/Barrage1_Sprite_8.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Unassorted/GodFist/FB_GodFist.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Unassorted/GodFist/FB_GodFist.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Unassorted/HyperCube/FB_HyperCube.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Abilities/Unassorted/HyperCube/FB_HyperCube.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Unassorted/HyperCube/HyperCube.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Unassorted/HyperCube/HyperCube_Sprite_0.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Unassorted/HyperCube/HyperCube_Sprite_1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Unassorted/HyperCube/HyperCube_Sprite_2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Unassorted/HyperCube/HyperCube_Sprite_3.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Unassorted/HyperCube/HyperCube_Sprite_4.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Unassorted/HyperCube/HyperCube_Sprite_5.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Unassorted/HyperCube/HyperCube_Sprite_6.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Unassorted/HyperCube/HyperCube_Sprite_7.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Unassorted/HyperCube/HyperCube_Sprite_8.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Abilities/Unassorted/HyperCube/HyperCube_Sprite_9.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Framework/AI/BT_BaseEnemy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/AI/BT_BaseEnemy.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Framework/CharacterCreator.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/CharacterCreator.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Framework/DataTable/DT_UnitSpawnData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Framework/DataTable/DT_UnitSpawnData.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Levels/Level_01.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Level_01.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Units/BP_UnitSpawner.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Units/BP_UnitSpawner.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project_E.slnx" beforeDir="false" afterPath="$PROJECT_DIR$/Project_E.slnx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project_E.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/Project_E.uproject" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Ability/Ability.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Ability/Ability.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/Actors/UnitSpawner.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Actors/UnitSpawner.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/Actors/UnitSpawner.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Actors/UnitSpawner.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/Misc/UnitManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Misc/UnitManager.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Project_E/Misc/UnitManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Project_E/Misc/UnitManager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_E/Public/UnitRowHandle.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_EEditor.Target.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_EEditor/Project_EEditor.Build.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_EEditor/Project_EEditor.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_EEditor/Project_EEditor.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_EEditor/UnitRowHandleCustomization.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Project_EEditor/UnitRowHandleCustomization.h" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,6 +116,18 @@
         <option name="TERMINAL_INTERACTION_BEHAVIOR" value="AUTO_DETECT" />
         <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/Intermediate/ProjectFiles/Project_E.vcxproj" />
       </configuration_1>
+      <configuration_2 setup="1">
+        <option name="CONFIGURATION" value="DebugGame" />
+        <option name="PLATFORM" value="x64" />
+        <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
+        <option name="EXE_PATH" value="$(LocalDebuggerCommand)" />
+        <option name="PROGRAM_PARAMETERS" value="$(LocalDebuggerCommandArguments)" />
+        <option name="WORKING_DIRECTORY" value="$(LocalDebuggerWorkingDirectory)" />
+        <option name="PASS_PARENT_ENVS" value="1" />
+        <option name="USE_EXTERNAL_CONSOLE" value="0" />
+        <option name="TERMINAL_INTERACTION_BEHAVIOR" value="AUTO_DETECT" />
+        <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/Intermediate/ProjectFiles/Project_E.vcxproj" />
+      </configuration_2>
       <option name="DEFAULT_PROJECT_PATH" value="$PROJECT_DIR$/Intermediate/ProjectFiles/Project_E.vcxproj" />
       <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/Intermediate/ProjectFiles/Project_E.vcxproj" />
       <option name="AUTO_SELECT_PRIORITY" value="10010" />
@@ -481,7 +357,11 @@
       <workItem from="1783853259243" duration="1101000" />
       <workItem from="1783883585228" duration="51000" />
       <workItem from="1783923597409" duration="571000" />
-      <workItem from="1783924191987" duration="3202000" />
+      <workItem from="1783924191987" duration="3677000" />
+      <workItem from="1783928161612" duration="3272000" />
+      <workItem from="1783931497686" duration="705000" />
+      <workItem from="1783932263315" duration="41000" />
+      <workItem from="1783932331820" duration="120000" />
     </task>
     <servers />
   </component>

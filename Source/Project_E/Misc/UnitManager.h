@@ -1,9 +1,9 @@
 ﻿#pragma once
 // Engine classes
 #include "CoreMinimal.h"
+#include "Engine/DataTable.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 // Custom classes
-#include "../Public/UnitRowHandle.h"
 // Generated
 #include "UnitManager.generated.h"
 
@@ -29,7 +29,7 @@ public:
 
 	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
 	UFUNCTION(BlueprintCallable)
-	AUnitBase* SpawnUnit(FUnitRowHandle RowHandle, FVector Location);
+	AUnitBase* SpawnUnit(FName RowName, const FTransform& SpawnTransform);
 
 	UFUNCTION(BlueprintCallable)
 	APlayerUnit* SpawnPlayerUnit(FPlayerUnitParams SpawnParams, FVector Location);

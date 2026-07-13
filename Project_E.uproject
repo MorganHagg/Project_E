@@ -12,11 +12,6 @@
 				"Engine",
 				"CoreUObject"
 			]
-		},
-		{
-			"Name": "Project_EEditor",
-			"Type": "Editor",
-			"LoadingPhase": "PostEngineInit"
 		}
 	],
 	"Plugins": [

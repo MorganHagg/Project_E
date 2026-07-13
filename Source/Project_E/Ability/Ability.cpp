@@ -1,7 +1,7 @@
 ﻿// Engine classes
 #include "Ability.h"
 #include "Projectile.h"
-#include "SAdvancedTransformInputBox.h"
+#include "Engine/World.h" 
 #include "Engine/OverlapResult.h"
 // Custom classes
 #include "../Unit/UnitBase.h"
@@ -10,7 +10,6 @@
 
 UAbility::UAbility()
 {
-	
 }
 
 void UAbility::Initiate(AUnitBase* Owner)

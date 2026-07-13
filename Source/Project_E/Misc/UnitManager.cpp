@@ -4,7 +4,6 @@
 #include "BehaviorTree/BehaviorTree.h"
 // Custom classes
 #include "../AI/AIUnit.h"
-#include "../Public/UnitRowHandle.h"
 #include "../Misc/FUnitSpawnDataRow.h"
 #include "../Misc/FPlayerUnitParams.h"
 #include "../Unit/UnitBase.h"
@@ -24,14 +23,12 @@ void UUnitManager::Initialize(FSubsystemCollectionBase& Collection)
 		TEXT("/Game/Framework/AI/BT_PlayerUnits.BT_PlayerUnits"));
 }
 
-AUnitBase* UUnitManager::SpawnUnit(FUnitRowHandle RowHandle, FVector Location)
+AUnitBase* UUnitManager::SpawnUnit(FName RowName, const FTransform& SpawnTransform)
 {
 	if (!UnitDataTable) return nullptr;
 
-	FFUnitSpawnDataRow* Row = UnitDataTable->FindRow<FFUnitSpawnDataRow>(RowHandle.RowName, TEXT("SpawnUnit"));
+	FFUnitSpawnDataRow* Row = UnitDataTable->FindRow<FFUnitSpawnDataRow>(RowName, TEXT("SpawnUnit"));
 	if (!Row) return nullptr;
-
-	FTransform SpawnTransform(FRotator::ZeroRotator, Location);
 
 	AUnitBase* NewUnit = Cast<AUnitBase>(
 		GetWorld()->SpawnActorDeferred<AUnitBase>(

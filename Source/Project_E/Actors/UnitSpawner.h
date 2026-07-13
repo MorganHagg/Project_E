@@ -3,9 +3,24 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 // Custom classes
-#include "../Public/UnitRowHandle.h"
 // Generated
 #include "UnitSpawner.generated.h"
+
+UENUM(BlueprintType)
+enum class ESpawnSelectionMode : uint8
+{
+	Sequential,
+	WeightedRandom
+};
+
+USTRUCT(BlueprintType)
+struct FSpawnWeight
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere)
+	float Value = 1.0f;
+};
 
 
 class AUnitBase;
@@ -21,23 +36,35 @@ public:
 
 protected:
 	virtual void BeginPlay() override;
-
+	
+	void SpawnUnit();
+	
+	FName GetNextUnitRowName();
+	
 public:
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(BlueprintReadOnly, Category = "Unit Spawner")
-	UUnitManager* UnitManager;
-
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Unit Spawner")
-	FUnitRowHandle UnitArchetype;
+	ESpawnSelectionMode SpawnMode = ESpawnSelectionMode::Sequential;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Unit Spawner",
+		meta = (EditCondition = "SpawnMode == ESpawnSelectionMode::WeightedRandom"))
+	TArray<FSpawnWeight> Weights;
+	
+	UPROPERTY(EditAnywhere, meta = (GetOptions = "GetValidUnitRowNames"))
+	TArray<FName> UnitRowNames;
+	
+	UPROPERTY(BlueprintReadOnly, Category = "Unit Spawner")
+	UUnitManager* UnitManagerRef;
 
 	UPROPERTY(EditAnywhere, Category = "Unit Spawner")
 	UDataTable* UnitDataTable;
 	
-	UPROPERTY(EditAnywhere, meta = (GetOptions = "GetValidUnitRowNames"))
-	FName UnitRowName;
 	
 	UFUNCTION(CallInEditor)
 	TArray<FString> GetValidUnitRowNames() const;
+
+private:
+	int32 SequentialIndex = 0;
 };
 	
