@@ -30,5 +30,14 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Unit Spawner")
 	FUnitRowHandle UnitArchetype;
+
+	UPROPERTY(EditAnywhere, Category = "Unit Spawner")
+	UDataTable* UnitDataTable;
+	
+	UPROPERTY(EditAnywhere, meta = (GetOptions = "GetValidUnitRowNames"))
+	FName UnitRowName;
+	
+	UFUNCTION(CallInEditor)
+	TArray<FString> GetValidUnitRowNames() const;
 };
 	

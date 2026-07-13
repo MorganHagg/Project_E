@@ -1,6 +1,7 @@
 ﻿#pragma once
 // Engine classes
 #include "CoreMinimal.h"
+#include "Subsystems/GameInstanceSubsystem.h"
 // Custom classes
 #include "../Public/UnitRowHandle.h"
 // Generated
